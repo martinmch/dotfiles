@@ -1,0 +1,30 @@
+[include]
+    ~/.gitconfig_secret # Contains [user]
+[github]
+    user = martinmch
+[alias]
+    st = status -sb
+    co = checkout
+    cp = cherry-pick
+    br = branch
+    l = log --graph --oneline -n 15
+    lol = log --graph --format=format:'%C(auto)%h%d %s - %C(blue)%an%C(reset), %ar'
+    lola = log --graph --format=format:'%C(auto)%h%d %s - %C(blue)%an%C(reset), %ar' --all
+    last = log -1 HEAD --graph --format=format:'%C(auto)%h%d %s - %C(blue)%an%C(reset), %ar'
+    hublink = !gitlink
+    hl = !gitlink
+[core]
+    editor = vim
+[apply]
+    whitespace = fix
+[merge]
+    tool = fugitive
+[mergetool "fugitive"]
+    cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+    keepBackup = false
+[diff]
+    tool = vimdiff
+[diff "pdf"]
+    textconv = pdftotext $1 -
+[difftool]
+    prompt = false
