@@ -116,12 +116,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
+. /etc/bash_completion.d/todo
+
 export EDITOR=vim
-export PATH=$PATH:~/.bin/:~/.local/.bin
 export LEDGER_FILE='/home/martinmch/ledger/current.journal'
 alias t='/home/martinmch/.bin/todo'
     
-. /etc/bash_completion.d/todo
     
 echo "Jurassic Park, System Security Interface"
 echo "Version 4.0.5, Alpha E"
