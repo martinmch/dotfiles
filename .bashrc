@@ -116,11 +116,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
-. /etc/bash_completion.d/todo
+#. /etc/bash_completion.d/todo
 
 export EDITOR=vim
 export LEDGER_FILE='/home/martinmch/ledger/current.journal'
-alias t='/home/martinmch/.bin/todo'
+export PATH="/home/mbc/.bin:$PATH"
+export TODOTXT_DEFAULT_ACTION=ls
+export TODOTXT_SORT_COMMAND='env LC_COLLATE=C sort -k 2,2 -k 1,1n'
+alias t='/home/mbc/.bin/todo.sh -d /home/mbc/.bin/todo.cfg'
+complete -F _todo t
     
     
 echo "Jurassic Park, System Security Interface"

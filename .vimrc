@@ -9,7 +9,7 @@ call plug#end()
 filetype plugin indent on
 
 set number
-set tw=74
+set tw=80
 set ts=4
 set sw=4
 set noswapfile
@@ -36,7 +36,7 @@ set fileencodings=utf-8
 
 color hipster
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%74v.\+/
+match OverLength /\%81v.\+/
 
 augroup line_return
     au!

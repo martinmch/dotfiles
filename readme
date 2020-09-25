@@ -1,0 +1,7 @@
+# Instructions
+
+- Symbolic link all files and directories to machine
+- Create mountpoint for passport at /media/mbc/passport
+- Create symbolic link at /var/lib/mpd/music/passport/ =>
+  /media/mbc/passport/music
+- Add passport to fstab

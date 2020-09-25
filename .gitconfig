@@ -1,5 +1,5 @@
 [include]
-    ~/.gitconfig_secret # Contains [user]
+    path = ~/.gitconfig_secret # Contains [user]
 [github]
     user = martinmch
 [alias]
