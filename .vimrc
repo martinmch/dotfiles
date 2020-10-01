@@ -50,3 +50,4 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+autocmd BufRead .vimpcrc set filetype=vim

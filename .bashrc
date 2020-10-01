@@ -123,7 +123,7 @@ export LEDGER_FILE='/home/martinmch/ledger/current.journal'
 export PATH="/home/mbc/.bin:$PATH"
 export TODOTXT_DEFAULT_ACTION=ls
 export TODOTXT_SORT_COMMAND='env LC_COLLATE=C sort -k 2,2 -k 1,1n'
-alias t='/home/mbc/.bin/todo.sh -d /home/mbc/.bin/todo.cfg'
+alias t='/home/mbc/.bin/todo -d /home/mbc/.bin/todo.cfg'
 complete -F _todo t
     
     
