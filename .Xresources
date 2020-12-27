@@ -1,6 +1,8 @@
 ! special
 *.foreground          : #efefef
 *.background          : #202020
+URxvt.transparent: true
+URxvt.shading:20
 *.cursorColor         : #515253
 URxvt*scrollBar       : false
 URxvt*font            : xft:Source Code Pro:size=14
