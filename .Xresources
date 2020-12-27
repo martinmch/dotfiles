@@ -4,8 +4,8 @@
 URxvt.transparent: true
 URxvt.shading:20
 *.cursorColor         : #515253
-URxvt*scrollBar       : false
-URxvt*font            : xft:Source Code Pro:size=14
+*scrollBar       : false
+*font            : xft:Monaco
 
 ! black
 *.color0:       #0c0d0e
@@ -38,4 +38,3 @@ URxvt*font            : xft:Source Code Pro:size=14
 ! white
 *.color7:       #b7b8b9
 *.color15:      #fcfdfe
-
