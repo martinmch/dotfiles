@@ -118,16 +118,19 @@ fi
 
 #. /etc/bash_completion.d/todo
 
+. /home/mbc/.notesrc
 export EDITOR=vim
-export LEDGER_FILE='/home/martinmch/ledger/current.journal'
-export PATH="/home/mbc/.bin:$PATH"
+export NOTEDIR="/home/mbc/documents/notes"
+export PATH="/home/mbc/.bin:/home/mbc/.local/bin:$PATH"
 export TODOTXT_DEFAULT_ACTION=ls
 export TODOTXT_SORT_COMMAND='env LC_COLLATE=C sort -k 2,2 -k 1,1n'
-alias t='/home/mbc/.bin/todo.sh -d /home/mbc/.bin/todo.cfg'
-complete -F _todo t
-    
-    
+alias lt="ls -rt1"
+alias mv="mv -i"
+alias rm="rm -i"
+
+
 echo "Jurassic Park, System Security Interface"
 echo "Version 4.0.5, Alpha E"
 echo "Ready..."
 PS1='> '
+set nobeep
