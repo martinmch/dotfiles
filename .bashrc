@@ -116,7 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#. /etc/bash_completion.d/todo
 
 . /home/mbc/.notesrc
 export EDITOR=vim
@@ -127,10 +126,13 @@ export TODOTXT_SORT_COMMAND='env LC_COLLATE=C sort -k 2,2 -k 1,1n'
 alias lt="ls -rt1"
 alias mv="mv -i"
 alias rm="rm -i"
+alias t='/home/mbc/.bin/todo -d /home/mbc/.bin/todo.cfg'
+complete -F _todo t
+alias clock='tty-clock -csC7'
 
 
 echo "Jurassic Park, System Security Interface"
 echo "Version 4.0.5, Alpha E"
 echo "Ready..."
-PS1='> '
 set nobeep
+PS1='\[\033[01;92m\]>\[\033[01;00m\] '

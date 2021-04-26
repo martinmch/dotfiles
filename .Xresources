@@ -1,11 +1,13 @@
 ! special
-*.foreground          : #efefef
-*.background          : #202020
-URxvt.transparent: true
-URxvt.shading:20
-*.cursorColor         : #515253
-*scrollBar       : false
-*font            : xft:Monaco
+URxvt.foreground  : #efefef
+URxvt.background  : #202020
+URxvt.cursorColor : #515253
+URxvt.transparent : true
+URxvt.transparent : true
+URxvt.shading     : 20
+URxvt.shading     : 15
+URxvt.scrollBar   : false
+URxvt.font        : xft:Source Code Pro:size=11
 
 ! black
 *.color0:       #0c0d0e

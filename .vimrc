@@ -1,6 +1,7 @@
 filetype off
 call plug#begin('~/.vim/plugged/')
 Plug 'tpope/vim-fugitive'
+Plug 'rhysd/vim-grammarous'
 Plug 'reedes/vim-wordy'
 Plug 'ledger/vim-ledger'
 "Plug 'jamessan/vim-gnupg'
@@ -9,7 +10,7 @@ call plug#end()
 filetype plugin indent on
 
 set number
-set tw=80
+set tw=72
 set ts=4
 set sw=4
 set noswapfile
@@ -56,3 +57,4 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+autocmd BufRead .vimpcrc set filetype=vim

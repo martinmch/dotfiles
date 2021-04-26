@@ -19,5 +19,9 @@ http://cphpost.dk/rss-feed
 
 # Berlingske nyheder
 https://www.berlingske.dk/content/3/rss
+
 # Berlingske opinion
 https://www.berlingske.dk/content/21/rss 
+
+https://gitlab.capmon.dk/capmon/responseview2.0/-/commits/master?feed_token=3Z5MZLYcknDtYjdUXx45&amp;format=atom
+https://wiki.capmon.dk/api.php?action=feedrecentchanges&hidemysel&user=Mbc&feedformat=rss
