@@ -1,6 +1,7 @@
 filetype off
 call plug#begin('~/.vim/plugged/')
 Plug 'tpope/vim-fugitive'
+Plug 'rhysd/vim-grammarous'
 Plug 'reedes/vim-wordy'
 Plug 'ledger/vim-ledger'
 Plug 'jamessan/vim-gnupg'
