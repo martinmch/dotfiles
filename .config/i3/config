@@ -10,6 +10,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+# open latest screenshot
+bindsym $mod+p exec feh $(cat $HOME/.lastscreen)
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -63,6 +66,9 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+# allows for switching workspace using PgDn and PgUp
+bindsym $mod+Next  workspace next
+bindsym $mod+Prior workspace prev
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -100,6 +106,8 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+Next  move container to workspace next
+bindsym $mod+Shift+Prior move container to workspace prev
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -144,19 +152,29 @@ bar {
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+for_window [title="Still Alive Animation"] border pixel 0
+for_window [class="Gxmessage"] floating enable
+for_window [class="xmessage"] floating enable
+for_window [class="feh"] floating enable; move position 1425 18; resize shrink height 10000 px; resize shrink width 10000 px; resize grow height 300 px; resize grow width 300 px;
 
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec /home/martinmch/.bin/brightness change 85.2
-bindsym XF86MonBrightnessDown exec /home/martinmch/.bin/brightness change -85.2
-
-	# Media player controls
+# Media player controls
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioPause exec mpc toggle
 bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
+
+exec --no-startup-id urxvtd
+exec --no-startup-id "bash ~/.bin/wallpaper season"
 
 bindsym XF86Mail exec mpc toggle
 bindsym XF86HomePage exec /home/mbc/.bin/keylang-toggle
 bindsym XF86Calculator exec /home/mbc/.bin/calculator
 bindsym Print exec /home/mbc/.bin/screenshot
 
+exec feh --bg-scale /home/mbc/downloads/Windows-10-Wallpapers-21-3840-x-2160.jpg
+#bindsym XF86MonBrightnessUp   exec xbacklight -inc 20
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+bindsym $mod+y exec "bash /home/martinmch/.bin/wallpaper season"
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+exec xset b off
