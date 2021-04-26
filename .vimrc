@@ -3,8 +3,8 @@ call plug#begin('~/.vim/plugged/')
 Plug 'tpope/vim-fugitive'
 Plug 'reedes/vim-wordy'
 Plug 'ledger/vim-ledger'
-Plug 'jamessan/vim-gnupg'
-Plug 'SirVer/ultisnips'            | Plug 'honza/vim-snippets'
+"Plug 'jamessan/vim-gnupg'
+"Plug 'SirVer/ultisnips'            | Plug 'honza/vim-snippets'
 call plug#end()
 filetype plugin indent on
 
@@ -16,7 +16,7 @@ set noswapfile
 set et
 set nowrap
 set hidden
-set undofile
+set undofile nobackup
 set list
 set title
 set wildmenu
@@ -25,6 +25,7 @@ set scrolloff=7
 set thesaurus+=/usr/share/vim/mthesaur
 set laststatus=2
 set undodir=~/.vim/.runtime/undo
+set backspace=2
 set path+=**
 set wildmode=full
 set wildignore+=*.o,*~,*.pyc,*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
@@ -33,6 +34,10 @@ set listchars=tab:▸\ ,eol:¬
 set completeopt=menuone,longest,preview
 set complete=.,w,b,u,t,i,k
 set fileencodings=utf-8
+set statusline=%t\ %y%h%m%r%=%P\ %c,%l/%L
+set complete=".,w,b,u,t,i,kspell"
+let g:netrw_altv         = 1  " Open splits to the right
+let g:netrw_liststyle    = 3  " Tree view
 
 color hipster
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
@@ -46,6 +51,7 @@ augroup line_return
         \ endif
 augroup END
 
+nnoremap ,<tab> mc80A <esc>080lDgelD`cP
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
