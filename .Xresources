@@ -3,9 +3,9 @@
 *.background          : #202020
 *.cursorColor         : #515253
 URxvt.transparent:   true
-URxvt.shading:       50
+URxvt.shading:       15
 URxvt*scrollBar       : false
-URxvt*font            : xft:Source Code Pro:size=14
+URxvt*font            : xft:Source Code Pro:size=11
 
 ! black
 *.color0:       #0c0d0e
