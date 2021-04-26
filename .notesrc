@@ -67,6 +67,10 @@ nf() {
 # Search within notes.
 ns() {
     if init; then
+        if [ -z "$1" ]; then
+            ls -1htr --color=always "$NOTEDIR"
+            return $?
+        fi
         cd "$NOTEDIR"
         grep -rin --exclude-dir=.git --color=always "$1"
         cd "$OLDPWD"
