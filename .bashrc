@@ -116,23 +116,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+for i in ~/.bashrc.d/*; do
+    . "$i"
+done
 
-. /home/mbc/.notesrc
 export EDITOR=vim
-export NOTEDIR="/home/mbc/documents/notes"
-export PATH="/home/mbc/.bin:/home/mbc/.local/bin:$PATH"
-export TODOTXT_DEFAULT_ACTION=ls
-export TODOTXT_SORT_COMMAND='env LC_COLLATE=C sort -k 2,2 -k 1,1n'
-alias lt="ls -rt1"
-alias mv="mv -i"
-alias rm="rm -i"
-alias t='/home/mbc/.bin/todo -d /home/mbc/.bin/todo.cfg'
-complete -F _todo t
-alias clock='tty-clock -csC7'
-
-
-echo "Jurassic Park, System Security Interface"
-echo "Version 4.0.5, Alpha E"
-echo "Ready..."
-set nobeep
-PS1='\[\033[01;92m\]>\[\033[01;00m\] '
