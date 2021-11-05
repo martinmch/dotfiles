@@ -1,6 +1,5 @@
 https://lobste.rs/rss
 https://zenhabits.net/feed/
-https://feeds.feedburner.com/zenhabits
 https://feeds.feedburner.com/TheArtOfManliness
 https://www.dr.dk/nyheder/service/feeds/indland
 https://www.dr.dk/nyheder/service/feeds/politik
@@ -23,5 +22,5 @@ https://www.berlingske.dk/content/3/rss
 # Berlingske opinion
 https://www.berlingske.dk/content/21/rss 
 
-https://gitlab.capmon.dk/capmon/responseview2.0/-/commits/master?feed_token=3Z5MZLYcknDtYjdUXx45&amp;format=atom
+https://gitlab.capmon.dk/capmon/responseview2.0/-/commits/master?feed_token=3Z5MZLYcknDtYjdUXx45&format=atom
 https://wiki.capmon.dk/api.php?action=feedrecentchanges&hidemysel&user=Mbc&feedformat=rss

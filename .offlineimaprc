@@ -1,0 +1,21 @@
+[general]
+accounts = Work
+ 
+[Account Work]
+localrepository = Local
+remoterepository = Remote
+ 
+[Repository Local]
+type = Maildir
+localfolders = ~/mail/work
+ 
+[Repository Remote]
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+type = IMAP
+remotehost = outlook.office365.com
+ssl = yes
+remoteuser = mbc@capmon.dk
+remotepass = <pass>
+
+# Folders to skip during sync.
+folderfilter = lambda foldername: foldername not in ['Deleted Items', 'Contacts', 'Calendar', 'Trash']
