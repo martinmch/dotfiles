@@ -4,3 +4,4 @@ alias rm="rm -i"
 alias clock='tty-clock -csC7'
 alias pass='pass -c'
 alias :q='exit'
+alias calendar='calendar -f ~/calendar/calendar'

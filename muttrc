@@ -1,0 +1,80 @@
+# first things first
+set editor      = "vim +start"
+
+set mail_check  = 0
+set copy        = no
+set mail_check_stats
+
+bind browser gg   top-page
+bind browser G   bottom-page
+bind browser \Cb previous-page
+bind browser \Cf next-page
+bind browser A   check-new
+bind browser v   view-file
+
+source ~/documents/dotfiles/mutt/colorscheme
+
+set sendmail=/usr/bin/msmtp
+
+set realname = "Martin Christiansen"
+set from = "mbc@capmon.dk"
+set charset = UTF-8
+set mbox_type=Maildir
+set folder="~/mail"
+mailboxes `echo -n "+ "; for file in ~/mail/*; do box=$(basename "$file"); echo -n "\"+$box\" "; done`
+set spoolfile="~/mail/work/INBOX"
+set postponed="+Drafts"
+set record="+work/Sent"
+
+mailboxes +INBOX \
+          +Archive \
+          +Gmail \
+
+alternative_order text/plain text/enriched text/html
+auto_view text/html
+
+# contacts
+set sort_alias          = alias
+set reverse_alias       = yes
+
+ignore *
+unignore date from to cc subject x-mailer x-url user-agent
+hdr_order date from cc subject
+
+send-hook . set signature = ~/documents/dotfiles/mutt/signature
+send-hook "~t @capmon.dk" set signature = ~/documents/dotfiles/mutt/internal-signature
+
+set date_format         = "%m/%d/%y %l:%M%P"
+set forward_edit        = ask-yes
+set forward_format      = "Fwd: %s"
+set include             = no
+set index_format        = "%2C %Z %d %-20.20F %s (%-4.4c)"
+set mime_forward        = yes
+set mime_forward_rest   = yes
+set move                = no
+set print               = yes
+set quit                = yes
+set sig_dashes          = no
+set sort                = 'threads'
+set sort_aux            = 'reverse-last-date-received'
+set text_flowed         = yes
+set timeout             = 1
+
+set delete
+set envelope_from
+set fast_reply
+set forward_quote
+set reverse_name
+set smart_wrap
+set ts_enabled
+
+unset markers
+unset wait_key
+unset reply_self
+unset confirmappend
+unset move
+
+# mailcap
+
+set mailcap_path = ~/.mutt/mailcap
+auto_view text/html

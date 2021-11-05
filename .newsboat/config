@@ -61,7 +61,7 @@ highlight article ":.*\\(embedded flash\\)$" color74 default
 #color listfocus color166 color235
 #color info color38 color235
 #color background color244 color234
-#color article color244 color234
+#color article color244 color234 
 
 feedlist-format "%-35t %?d?- %-35d&? %> %u"
 articlelist-format "%-4i %f %t"
