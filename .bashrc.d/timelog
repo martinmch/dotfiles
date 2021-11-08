@@ -1,0 +1,30 @@
+month=`date +"%b" | tr '[:upper:]' '[:lower:]'`
+year=`date +"%Y"`
+
+TIMELOG_D=/home/mbc/notes/timelog/
+TIMELOG_B=${TIMELOG_D}book.ledger
+TIMELOG_C=${TIMELOG_D}${year}/${month}
+alias wasted='ledger -f ${TIMELOG_B} bal -b $(date -dlast-monday +%m/%d) --depth 2'
+alias wastedall='ledger -f ${TIMELOG_B} bal -b $(date -dlast-monday +%m/%d)'
+alias cin='echo i $(date +"%Y/%m/%d %H:%M:%S") >> ${TIMELOG_C}'
+alias cout='echo o $(date +"%Y/%m/%d %H:%M:%S") >> ${TIMELOG_C}'
+alias cst='[[ $(tail -1 ${TIMELOG_C} | cut -c 1) == "i" ]] && { echo "Clocked IN to $(_current_task)"; wasted; } || { echo "Clocked OUT"; wasted;}' 
+
+function _current_task ()
+{
+	[[ $(tail -1 ${TIMELOG_C} | cut -c 1) == "i" ]] \
+	&& echo "$(tail -1 ${TIMELOG_C} | cut -d " " -f 4) "
+}
+
+function _clock_in ()
+{
+    local cur prev
+    _get_comp_words_by_ref -n : cur
+
+    # local words="$(cut -d ' ' -s -f 4 ${TIMELOG} | sed '/^$/d' | sort | uniq)"
+    local words="$(ledger -f ${TIMELOG_B} accounts | sed '/^$/d' | sort | uniq)"
+    COMPREPLY=($(compgen -W "${words}" -- ${cur}))
+    __ltrim_colon_completions "${cur}"
+}
+
+complete -F _clock_in clock-in
