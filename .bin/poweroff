@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+task=$(_current_task);
+if [[ ! -z ${task} ]]
+then
+	echo "You are not clocked out of ${task}";
+	clock-out
+	sleep 5
+	poweroff
+else
+	poweroff
+fi
