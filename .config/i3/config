@@ -178,4 +178,5 @@ exec feh --bg-scale /home/mbc/downloads/Windows-10-Wallpapers-21-3840-x-2160.jpg
 bindsym $mod+y exec "bash /home/martinmch/.bin/wallpaper season"
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
+bindsym Mod4+l exec i3lock -c "#000"
 exec xset b off
