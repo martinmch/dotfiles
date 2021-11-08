@@ -1,0 +1,11 @@
+function _authcm ()
+{
+    local cur prev
+    _get_comp_words_by_ref -n : cur
+
+    local words="$(sed '/^$/d' $HOME/.authcmrc | sort | uniq)"
+    COMPREPLY=($(compgen -W "${words}" -- ${cur}))
+    __ltrim_colon_completions "${cur}"
+}
+
+complete -F _authcm authcm
