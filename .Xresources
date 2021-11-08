@@ -2,7 +2,8 @@
 !Rxvt.transparent : true
 !Rxvt.shading     : 190
 Rxvt.scrollBar   : false
-Rxvt.font        : xft:Monaco:size=11
+!Rxvt.font        : xft:Monaco:size=11
+urxvt*font : xft:Fira Code Nerd Font:size=13
 
 !*.foreground  : #262626
 !*.background  : #ffffff

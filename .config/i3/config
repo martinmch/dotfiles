@@ -1,6 +1,7 @@
 set $mod Mod1
 
-font pango:monospace 10
+#font pango:monospace 10
+font xft:Fira Code Nerd Font 11
 
 focus_follows_mouse no
 
