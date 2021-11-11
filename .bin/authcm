@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-if [[ "authcm -h mln" == *" -h"* ]]; then 
+if [[ "${@}" == *" -h"* ]]; then
 	cat<<EOF
 Usage: ${0} - [USER@]HOST SESSIONID
 
