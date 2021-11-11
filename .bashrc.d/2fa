@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+function 2fa ()
+{
+	keyName="${1}2fa_key"
+	
+	if [[ -z "${!keyName}" ]]
+	then
+		oathtool -b --totp "$key"
+	fi
+}
+
+function _2fa ()
+{
+    local cur prev
+    _get_comp_words_by_ref -n : cur
+
+    local words=$(cat ~/.2farc | awk -F'=' '{print $1}' | sed 's/_2fa_key//')
+    COMPREPLY=($(compgen -W "${words}" -- ${cur}))
+    __ltrim_colon_completions "${cur}"
+}
+
+complete -F _2fa 2fa
