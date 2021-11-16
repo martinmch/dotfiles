@@ -1,3 +1,5 @@
-echo "Jurassic Park, System Security Interface"
-echo "Version 4.0.5, Alpha E"
-echo "Ready..."
+cat<<EOF
+Jurassic Park, System Security Interface
+Version 4.0.5, Alpha E
+Ready...
+EOF
