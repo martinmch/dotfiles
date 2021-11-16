@@ -2,12 +2,18 @@
 
 function 2fa ()
 {
-	keyName="${1}2fa_key"
-	
-	if [[ -z "${!keyName}" ]]
-	then
-		oathtool -b --totp "$key"
-	fi
+	keyName="${1}_2fa_key"
+	# Create a subshell to prevent keys from being sourced to environment
+	(
+		. "$HOME/.2farc";
+
+		if [[ ! -z "${!keyName}" ]]
+		then
+			oathtool -b --totp "${!keyName}";
+		else
+			echo "$0: cannot access '$1': No such 2fa key";
+		fi
+	)
 }
 
 function _2fa ()
