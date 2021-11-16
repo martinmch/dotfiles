@@ -27,4 +27,7 @@ function _clock_in ()
     __ltrim_colon_completions "${cur}"
 }
 
-complete -F _clock_in clock-in
+complete -F _clock_in cin
+
+rm -f -- "$HOME/timelog"
+ln -s "$TIMELOG_C" "$HOME/timelog"
