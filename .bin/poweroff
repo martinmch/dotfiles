@@ -4,9 +4,9 @@ task=$(_current_task);
 if [[ ! -z ${task} ]]
 then
 	echo "You are not clocked out of ${task}";
-	clock-out
+	cout
 	sleep 5
-	poweroff
-else
-	poweroff
 fi
+
+# Run the system binary for poweroff
+$(which --skip-tilde poweroff)
