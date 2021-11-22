@@ -165,18 +165,16 @@ bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
 
 exec --no-startup-id urxvtd
-exec --no-startup-id "bash ~/.bin/wallpaper season"
+exec --no-startup-id "bash /home/mbc/.fehbg"
 
 bindsym XF86Mail exec mpc toggle
 bindsym XF86HomePage exec /home/mbc/.bin/keylang-toggle
 bindsym XF86Calculator exec /home/mbc/.bin/calculator
 bindsym Print exec /home/mbc/.bin/screenshot
 
-exec feh --bg-scale /home/mbc/downloads/Windows-10-Wallpapers-21-3840-x-2160.jpg
 #bindsym XF86MonBrightnessUp   exec xbacklight -inc 20
 #bindsym XF86MonBrightnessDown exec xbacklight -dec 20
-bindsym $mod+y exec "bash /home/martinmch/.bin/wallpaper season"
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
-bindsym Mod4+l exec i3lock -c "#000"
+bindsym Mod4+l exec i3lock -c "#000000"
 exec xset b off
