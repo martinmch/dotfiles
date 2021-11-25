@@ -6,6 +6,7 @@ ln -s $HOME/documents/dotfiles/.vim $HOME/.vim
 ln -s $HOME/documents/dotfiles/.bin $HOME/.bin
 ln -s $HOME/documents/dotfiles/.gitconfig $HOME/.gitconfig
 ln -s $HOME/documents/dotfiles/.Xresources $HOME/.Xresources
+ln -s $HOME/documents/dotfiles/.config/i3/config $HOME/.config/i3/config
 cp $HOME/documents/dotfiles/.gitconfig_secret $HOME/.gitconfig_secret
 vim .gitconfig_secret
 
