@@ -1,0 +1,21 @@
+# MS Excel
+application/msword; antiword %s | more;
+application/x-msexcel; libreoffice --calc %s
+application/ms-exc; libreoffice --calc %s
+application/excel; libreoffice --calc %s
+application/msexcel; libreoffice --calc %s
+application/vnd.ms-exc; libreoffice --calc %s
+application/vnd.ms-excel; libreoffice --calc %s
+
+# MS Word
+application/msword; libreoffice --writer %s
+#
+# Images
+image/*; feh %s
+video/*; mpv %s
+
+#text/html; pandoc -f html -t markdown; copiousoutput;
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+
+application/pdf; zathura %s;
+application/octet-stream; zathura %s;

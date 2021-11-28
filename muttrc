@@ -12,6 +12,31 @@ bind browser \Cf next-page
 bind browser A   check-new
 bind browser v   view-file
 
+set query_command = "abook --mutt-query %s"
+set ispell = "aspell -e -c"
+set sendmail_wait = -1
+set fast_reply
+set mime_forward
+set forward_quote
+set reverse_alias
+set reverse_name
+unset confirmappend
+set reverse_realname=yes
+set sort_aux=last-date-received
+set sort=threads
+set strict_threads="yes"
+set wrap=72
+set sort_browser="reverse-date"
+set markers=no
+set pager_stop=yes
+set pager_index_lines=9
+set print=ask-yes
+set edit_headers
+set read_inc=0
+set sleep_time=0
+set header_cache="/home/martinmch/.headercache/"
+set maildir_header_cache_verify=no
+
 source ~/documents/dotfiles/mutt/colorscheme
 
 set sendmail=/usr/bin/msmtp
@@ -38,13 +63,18 @@ set sort_alias          = alias
 set reverse_alias       = yes
 
 ignore *
-unignore date from to cc subject x-mailer x-url user-agent
+unignore date from to cc bcc subject x-mailer x-url user-agent
 hdr_order date from cc subject
 
 send-hook . set signature = ~/documents/dotfiles/mutt/signature
 send-hook "~t @capmon.dk" set signature = ~/documents/dotfiles/mutt/internal-signature
 
 set date_format         = "%m/%d/%y %l:%M%P"
+set forward_format = "Fwd: %s"
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set attribution='* %n <%a> [%(%y-%m/%d %H:%M)]:'
+set status_format = "[ Folder: %f ] — [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ] %>—— %?p?( %p postponed )?"
+set alias_format = "%4n %t %-20a %r"
 set forward_edit        = ask-yes
 set forward_format      = "Fwd: %s"
 set include             = no
@@ -77,4 +107,32 @@ unset move
 # mailcap
 
 set mailcap_path = ~/.mutt/mailcap
-auto_view text/html
+auto_view text/plain text/html
+
+# Subscribe means that I am subscribed to list, and do not wan't a copy
+# of my own message. List means that I am not subscribed to the list.
+subscribe netgrp@tkol.dk
+subscribe drift@k-net.dk
+subscribe lobsters-1YZZRQuXLu@lobste.rs
+
+color body brightred default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+color body brightyellow default warning
+color body brightred default "[^no ]error"
+color body brightred default "fail(ure|ed)?"
+color body brightgreen default "(exam|eksamen|hast|haster)?"
+bind index i mail
+bind pager i edit
+
+source /home/martinmch/.config/mutt/accounts/martinmch
+source /home/martinmch/.config/mutt/colors/nongeek
+source /home/martinmch/.mutt/groups
+
+folder-hook /home/martinmch/mail/christiansen/* source ~/.config/mutt/accounts/christiansen
+folder-hook /home/martinmch/mail/martinmch/* source ~/.config/mutt/accounts/martinmch
+
+mailboxes "~/mail/martinmch" "~/mail/christiansen" "~/mail/ucph"
+
+macro index ,u "<change-folder> =../ucph/INBOX<Enter>" "go to university inbox"
+macro index ,e "<change-folder> =../christiansen/inbox<Enter>" "go to teacher inbox"
+macro index ,m "<change-folder> =../martinmch/inbox<Enter>" "go to personal inbox"
