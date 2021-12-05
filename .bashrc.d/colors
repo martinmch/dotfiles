@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+color() { tput sgr0; tput setaf "$1"; cat; tput sgr0; }
+
+red () { color 1; }
+green () { color 2; }
+yellow () { color 3; }
+blue () { color 4; }
+purple () { color 5; }
