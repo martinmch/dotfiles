@@ -116,8 +116,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-for i in ~/.bashrc.d/*; do
-    . "$i"
-done
+if [ -d ~/.bashrc.d ];
+then
+    for i in ~/.bashrc.d/*; do
+        . "$i"
+    done
+fi
 
 export EDITOR=vim
