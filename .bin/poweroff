@@ -9,4 +9,4 @@ then
 fi
 
 # Run the system binary for poweroff
-$(which --skip-tilde poweroff)
+/usr/sbin/poweroff
