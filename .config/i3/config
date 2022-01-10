@@ -165,7 +165,7 @@ bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
 
 exec --no-startup-id urxvtd
-exec --no-startup-id "bash /home/mbc/.fehbg"
+exec --no-startup-id "bash $HOME/.bin/work-screen-layout.sh"
 
 bindsym XF86Mail exec mpc toggle
 bindsym XF86HomePage exec /home/mbc/.bin/keylang-toggle
