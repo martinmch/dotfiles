@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+rclone mount internt: ~/internt --vfs-cache-mode=writes
