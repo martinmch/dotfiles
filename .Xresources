@@ -2,7 +2,7 @@
 !Rxvt.transparent : true
 !Rxvt.shading     : 190
 Rxvt.scrollBar   : false
-URxvt.font        : xft:Monaco:size=10
+URxvt.font        : xft:Monaco:size=12
 
 *.foreground : #efefef
 *.background : #202020
