@@ -1,7 +1,9 @@
 i3
+feh
+vim
 git
 network-manager-openvpn
-rxvt-unicode
+# rxvt-unicode
 distro
 python3-pip
 chromium

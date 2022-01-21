@@ -44,7 +44,7 @@ fi
 # Now we need to set up secrets, files and applications.
 
 mkdir /usr/share/fonts/truetype/ttf-monaco
-ln -s /usr/share/fonts/truetype/ttf-monaco/Monaco_Linux.ttf $HOME/dotfiles/fonts/ttf-monaco/Monaco_Linux.ttf
+ln -s /usr/share/fonts/truetype/ttf-monaco/Monaco_Linux.ttf $(dirname "$0")/fonts/ttf-monaco/Monaco_Linux.ttf
 
 setup_gitsecret () {
     echo<<EOF > ~/.gitconfig_secret

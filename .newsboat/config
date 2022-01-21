@@ -1,45 +1,16 @@
 auto-reload yes
 max-items 50
 
-
-unbind-key ENTER
-unbind-key j
-unbind-key k
-unbind-key J
-unbind-key K
-
-
-bind-key j down
-bind-key k up
-bind-key l open
-bind-key h quit
-
 highlight article "^(Title):.*$" blue default
 highlight article "https?://[^ ]+" red default
 highlight article "\\[image\\ [0-9]+\\]" green default
 
 feed-sort-order unreadarticlecount
-text-width 72
+text-width 80
 show-read-feeds no
+browser "firefox %u"
 
 # OLD
-
-refresh-on-startup yes
-#pager   less %f
-color listnormal_unread cyan black
-color listfocus   red default blink
-color info          red default bold
-datetime-format "%b %d %R"
-max-items 40
-keep-articles-days 14
-show-read-feeds yes
-show-read-articles yes
-#download-full-page yes 
-notify-always yes 
-confirm-exit no
-notify-program "/usr/bin/notify-send"
-reload-time 60
-
 highlight all "linux,Linux" red magenta bold
 articlelist-format "%4i %f %D %?T?|%-17T| ?%t"
  
@@ -56,12 +27,12 @@ highlight article ":.*\\(link\\)$" color74 default
 highlight article ":.*\\(image\\)$" color74 default
 highlight article ":.*\\(embedded flash\\)$" color74 default
  
-#color listnormal color244 color234
-#color listnormal_unread color244 color234 bold
-#color listfocus color166 color235
-#color info color38 color235
-#color background color244 color234
-#color article color244 color234 
+color listnormal color244 color234
+color listnormal_unread color244 color234 bold
+color listfocus color166 color235
+color info color38 color235
+color background color244 color234
+color article color244 color234 
 
 feedlist-format "%-35t %?d?- %-35d&? %> %u"
 articlelist-format "%-4i %f %t"

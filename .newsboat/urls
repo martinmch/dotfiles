@@ -1,20 +1,51 @@
 https://lobste.rs/rss
+
+# Zen habits (duh)
 https://zenhabits.net/feed/
+
+# Art of manliness
 https://feeds.feedburner.com/TheArtOfManliness
+
+# Danish government media
 https://www.dr.dk/nyheder/service/feeds/indland
 https://www.dr.dk/nyheder/service/feeds/politik
 https://www.dr.dk/nyheder/service/feeds/viden
 https://www.dr.dk/nyheder/service/feeds/allenyheder/
-https://pig-monkey.com/feed/
-https://blog.ploeh.dk/atom.xml
-https://solar.lowtechmagazine.com/feeds/all.rss.xml
 
+# Technology and biking personal blog
+https://pig-monkey.com/feed.atom
+
+# Mark Seemann
+https://blog.ploeh.dk/atom.xml
+
+# Low-Tech Magazine
+https://feeds2.feedburner.com/typepad/krisdedecker/lowtechmagazineenglish
+
+# Thinmatrix
+https://www.youtube.com/feeds/videos.xml?channel_id=UCUkRj4qoT1bsWpE_C8lZYoQ
+
+# Phil Bohun
 https://www.youtube.com/feeds/videos.xml?channel_id=UChEygfZo7SZ64E0mp038Jvg
+
+# Nixcasts - connermcd
 https://www.youtube.com/feeds/videos.xml?channel_id=UCgREucssIfY9e0Iy3yhse8w
+
+# Matt D'avella
 https://www.youtube.com/feeds/videos.xml?channel_id=UCJ24N4O0bP7LGLBDvye7oCA
 
+# Geowizard
+https://www.youtube.com/feeds/videos.xml?channel_id=UCW5OrUZ4SeUYkUg1XqcjFYA
+
+# Beau Miles
+https://www.youtube.com/feeds/videos.xml?channel_id=UCm325cMiw9B15xl22_gr6Dw
+
+# Robby Huang
+https://www.youtube.com/feeds/videos.xml?channel_id=UCQ5htgkJinTaZkDT-P0R7tg
+
+# Adventure Archives
+https://www.youtube.com/feeds/videos.xml?channel_id=UClFrYG5h7Vbz-Y2CEIEU6EQ
+
 https://www.unifix.org/feed/
-http://cphpost.dk/rss-feed
 
 # Berlingske nyheder
 https://www.berlingske.dk/content/3/rss
@@ -22,5 +53,9 @@ https://www.berlingske.dk/content/3/rss
 # Berlingske opinion
 https://www.berlingske.dk/content/21/rss 
 
-https://gitlab.capmon.dk/capmon/responseview2.0/-/commits/master?feed_token=3Z5MZLYcknDtYjdUXx45&format=atom
-https://wiki.capmon.dk/api.php?action=feedrecentchanges&hidemysel&user=Mbc&feedformat=rss
+# OpenBSD developer
+https://jcs.org/rss
+
+https://drewdevault.com/blog/index.xml
+https://sourcehut.org/blog/index.xml
+
