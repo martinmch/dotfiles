@@ -1,0 +1,9 @@
+function title() {
+    echo -ne "\033]0;$1\007"
+}
+
+title "${USER}@${HOSTNAME}:$PWD"
+
+function cd() {
+    builtin cd $*; title "${USER}@${HOSTNAME}:$PWD"
+}
