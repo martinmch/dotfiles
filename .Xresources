@@ -2,10 +2,13 @@
 !Rxvt.transparent : true
 !Rxvt.shading     : 190
 Rxvt.scrollBar   : false
-URxvt.font        : xft:Monaco:size=12
+!URxvt.font        : xft:Monaco:size=14
+URxvt.font :       xft:Noto Mono:size=14:antialias=true
 
-*.foreground : #efefef
-*.background : #202020
+!*.foreground : #efefef
+!*.background : #202020
+*.foreground : #414141
+*.background : #f4f4f4
 
 ! black
 *.color0:       #0c0d0e
