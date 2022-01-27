@@ -1,3 +1,5 @@
 .vim/.netrwhist
 .offlineimap
 .vim/autoload/plug.vim.old
+.newsboat/cache.db
+.newsboat/cache.db.lock
