@@ -36,11 +36,13 @@ let g:netrw_altv         = 1  " Open splits to the right
 let g:netrw_liststyle    = 3  " Tree view
 let g:netrw_banner       = 0
 let g:netrw_browse_split = 4
+set notitle
 
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
-color hipster
+"color hipster
+color default
 
 augroup line_return
     au!
