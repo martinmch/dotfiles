@@ -140,10 +140,31 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# class                 border  bground text    indicator child_border
+client.focused          #414141 #E1E1E1 #414141 #2E9EF4   #285577
+client.focused_inactive #414141 #E1E1E1 #414141 #484E50   #5F676A
+client.unfocused        #414141 #E1E1E1 #888888 #292D2E   #222222
+client.urgent           #414141 #900000 #FFFFFF #900000   #900000
+client.placeholder      #414141 #E1E1E1 #414141 #000000   #0C0C0C
+
+client.background       #E1E1E1
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+    status_command i3status
+    position top
+    colors {
+        background #E1E1E1
+        statusline #414141
+        separator  #666666
+
+        focused_workspace  #000000 #000000 #E1E1E1
+        active_workspace   #E1E1E1 #E1E1E1 #414141
+        inactive_workspace #E1E1E1 #E1E1E1 #888888
+        urgent_workspace   #900000 #900000 #FFFFFF
+        binding_mode       #990000 #900000 #FFFFFF
+    }
 }
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
