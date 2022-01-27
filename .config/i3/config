@@ -184,7 +184,9 @@ bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
 
 exec --no-startup-id urxvtd
-exec --no-startup-id "bash $HOME/.bin/work-screen-layout.sh"
+exec --no-startup-id "bash $HOME/.fehbg"
+exec --no-startup-id /usr/bin/pasystray
+exec --no-startup-id nm-applet
 
 bindsym XF86Mail exec mpc toggle
 bindsym XF86HomePage exec /home/mbc/.bin/keylang-toggle
@@ -193,7 +195,9 @@ bindsym Print exec /home/mbc/.bin/screenshot
 
 #bindsym XF86MonBrightnessUp   exec xbacklight -inc 20
 #bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
+
 bindsym Mod4+l exec i3lock -c "#000000"
 exec xset b off
