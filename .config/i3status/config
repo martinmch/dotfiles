@@ -12,13 +12,11 @@ general {
 }
 
 # order += "ipv6"
-order += "volume master"
-order += "disk /home"
-order += "wireless _first_"
-order += "ethernet _first_"
-#order += "battery all"
-order += "load"
-order += "read_file keylang"
+# order += "volume master"
+# order += "wireless _first_"
+# order += "ethernet _first_"
+# order += "battery all"
+# order += "load"
 order += "tztime local"
 
 wireless _first_ {
@@ -37,18 +35,12 @@ battery all {
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+        format = "%a %H:%M"
 }
 
 load {
         format = "%1min"
 }
-
-#read_file keylang {
-#        format = "%content"
-#        path = "/home/mbc/.keylang"
-#        max_characters = 2
-#}
 
 disk "/home" {
         format = "%avail"
