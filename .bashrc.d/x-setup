@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+if [ "$HIDPI" = "1" ]; then
+    ARGS="-DHIDPI=1 -DHOME=$HOME"
+else
+    ARGS="-DHOME=$HOME"
+fi
+
+xrdb $ARGS < ~/.Xdefaults
