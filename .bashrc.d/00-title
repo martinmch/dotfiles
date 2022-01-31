@@ -4,6 +4,3 @@ function title() {
 
 title "${USER}@${HOSTNAME}:$PWD"
 
-function cd() {
-    builtin cd $*; title "${USER}@${HOSTNAME}:$PWD"
-}

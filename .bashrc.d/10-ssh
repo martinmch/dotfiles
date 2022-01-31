@@ -1,0 +1,5 @@
+function ssh() {
+    title "Remote shell (secure)"
+    /usr/bin/ssh $@
+    title "${USER}@${HOSTNAME}:$PWD"
+}
