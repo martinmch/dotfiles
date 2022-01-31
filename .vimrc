@@ -6,7 +6,7 @@ call plug#end()
 filetype plugin indent on
 
 set number
-set tw=80
+set tw=78
 set ts=4
 set sw=4
 set noswapfile
@@ -38,11 +38,11 @@ let g:netrw_banner       = 0
 let g:netrw_browse_split = 4
 set notitle
 
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
-
 "color hipster
 color default
+
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
 
 augroup line_return
     au!
