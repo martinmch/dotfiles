@@ -1,4 +1,5 @@
-NOTEDIR=~/documents/notes/
+#!/usr/bin/env bash
+export NOTEDIR="$HOME/notes"
 
 # Attempt to append the appropriate extension to a filename, preferring gpg
 # over txt.
@@ -37,7 +38,7 @@ n() {
     if init; then
         # If no note was given, list the notes.
         if [ -z "$1" ]; then
-            ls -lhtr --color=always "$NOTEDIR"
+            ls -1htr --color=always "$NOTEDIR"
         # If a note was given, open it.
         else
             filepath="$(buildfile "$NOTEDIR"/"$1")"
@@ -68,16 +69,14 @@ nf() {
 # Search within notes.
 ns() {
     if init; then
+        if [ -z "$1" ]; then
+            ls -1htr --color=always "$NOTEDIR"
+            return $?
+        fi
         cd "$NOTEDIR"
-        grep -Rin --exclude-dir=.git --color=always "$1"
+        grep -rin --exclude-dir=.git --color=always "$1"
         cd "$OLDPWD"
     else
         return $?
     fi
 }
-
-# Set zsh autocompletion for notes.
-if [ -n "$ZSH_NAME" ]; then
-    compctl -W "$NOTEDIR" -f n
-fi
-
