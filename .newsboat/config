@@ -14,9 +14,6 @@ browser "firefox %u"
 highlight all "linux,Linux" red magenta bold
 articlelist-format "%4i %f %D %?T?|%-17T| ?%t"
  
-highlight feedlist "^ *[0-9]+ *N " color156 default
-highlight articlelist "^ *[0-9]+ *N " color156 default
- 
 highlight article "^(Feed|Title|Author|Link|Date|Linux):.*" color75 default
 highlight article "^Podcast Download URL:.*" color71 default
 highlight article "^Links:" white color240 underline
@@ -27,17 +24,29 @@ highlight article ":.*\\(link\\)$" color74 default
 highlight article ":.*\\(image\\)$" color74 default
 highlight article ":.*\\(embedded flash\\)$" color74 default
  
-# color listnormal color244 color234
-# color listnormal_unread color244 color234 bold
-# color listfocus color166 color235
-# color info color38 color235
-# color background color244 color234
-# color article color244 color234
+# a normal list item
+color listnormal color244 default
+# An unread list item
+color listnormal_unread color244 default bold
+# The currently selected list item
+color listfocus color255 color235
+# The currently selected and unread list item
+color listfocus_unread color255 color235
+# The info bars on top and bottom
+color info color255 color235
+# color background default default
+color article default default
 
 feedlist-format "%-35t %?d?- %-35d&? %> %u"
+
 articlelist-format "%-4i %f %t"
+
 feedlist-title-format "%N %V %> %u feeds with new articles"
+
 articlelist-title-format "%T"
+
 html-renderer "w3m -dump -T text/HTML -cols 72"
+
 highlight article "^(Feed|Title|Author|Link|Date):.*" yellow default bold
+
 notify-format "News (%n unread articles, %f unread feeds)"
