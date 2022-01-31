@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+
+STAMP="$HOME/pictures/screenshots/$(date +"%y-%m-%d--%H-%M-%S").png"
+cmd=$(printf "1.section\n2.fullscreen\n3.focused" \
+    | dmenu  -l 3 -p 'Choose screenshot type:')
+case "${cmd}" in
+  3.focused)
+      ARGS="-u";
+      DESCRIPTiON="focused window";;
+  2.fullscreen)
+      ARG="-d 1";
+      DESCRIPTION="full screen";;
+  1.section)
+      ARGS="-s";
+      DESCRIPTION="section";;
+  *) exit 1;;
+esac
+
+# TODO: Change mpv to system notification sound daemon.
+scrot ${ARGS} ${STAMP} \
+    && notify-send -u low 'Screenshot' "Screenshot of ${DESCRIPTION} saved" \
+    && mpv --really-quiet /home/martinmch/.bin/screenshot.wav

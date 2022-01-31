@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+WPDIR="$HOME/pictures/wallpapers"
+cmd=$(printf "season\ntime of day" | dmenu -l 3 -p 'Choose wallpaper category:')
+case "${cmd}" in
+    season) WPDIR="$WPDIR/$($HOME/.bin/season)";;
+    "time of day") WPDIR="$WPDIR/$($HOME/.bin/timeofday)";;
+    *) exit 1;;
+esac
+feh --bg-scale --recursive --randomize --no-fehbg "$WPDIR"

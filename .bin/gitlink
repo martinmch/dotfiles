@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# I use this script to get the github link for the current commit in a repo.
+# I've also made a git alias
+# hublink = !gitlink
+# hl = !gitlink
+
+git remote get-url --all origin \
+    | sed -s 's|\:|\/|' \
+    | sed -s 's/^git@/https\:\/\//' \
+    | sed -s "s/\.git$/\/commit\/`git rev-parse --short HEAD`/" \
+    | tee >(xclip -i)

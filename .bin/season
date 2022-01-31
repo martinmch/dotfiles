@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+case "$(date '+%m')" in
+    (12|01|02) echo "winter";;
+    (03|04|05) echo "spring";;
+    (06|07|08) echo "summer";;
+    (09|10|11) echo "fall";;
+esac

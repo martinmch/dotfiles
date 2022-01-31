@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+center=50
+
+usage(){
+    cat<<EOF
+This tool is used to calculate the center of a line of text on a typewriter.
+The number outputted is the position the sentence should start at,
+for the sentence to be centered around column 50.
+    example: 
+        cat document.txt | tw
+        > "First Line": 45
+
+    This means that when writing "First line" on your typewriter,
+    it you should write the F character in column 45.
+
+        echo test | tw
+        > "test": 48
+
+        tw document.txt
+        > "First Line": 45
+
+        tw <(echo "First Line")
+        > "First Line": 45
+EOF
+}
+
+case $1 in
+    "--help" )
+        usage; exit 0;;
+esac
+center=43
+
+while read line; do
+    echo -n "\"$line\": "
+    echo "$center-($(echo -n "$line" | wc -c))/2" | bc
+done < "${1:-/dev/stdin}"

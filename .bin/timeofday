@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+case "$(date '+%H')" in
+    (0[0-4]|19|2[0-4]) echo "night";;
+    (0[5-9]|10) echo "morning";;
+    (1[1-4]) echo "midday";;
+    (1[5-8]) echo "afternoon";;
+esac

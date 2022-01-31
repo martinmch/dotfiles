@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+# Prints eighty hashes to the terminal
+printf "################################################################################\n"

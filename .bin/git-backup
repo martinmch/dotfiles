@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+FOLDER="$(basename `pwd`)"
+GITREV="$(git rev-parse --short HEAD)"
+if [ $? -ne 0 ]; then
+    exit $?
+fi
+DATE="$(date +"%y-%m-%d--%H-%M-%S")"
+FILE="../$FOLDER-$GITREV-$DATE.gb.asc"
+# RECIPIENT
+REC="$1"
+git bundle create - --all > "${FILE}" # | gpg -e -r ${REC} -a -o "${FILE}"
