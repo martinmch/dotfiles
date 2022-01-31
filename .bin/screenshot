@@ -19,4 +19,4 @@ esac
 # TODO: Change mpv to system notification sound daemon.
 scrot ${ARGS} ${STAMP} \
     && notify-send -u low 'Screenshot' "Screenshot of ${DESCRIPTION} saved" \
-    && mpv --really-quiet /home/martinmch/.bin/screenshot.wav
+    && canberra-gtk-play -i camera-shutter -d "screenshot"
