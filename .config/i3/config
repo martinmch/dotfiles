@@ -167,9 +167,9 @@ bar {
     }
 }
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id /home/mbc/.bin/changeVolume up
+bindsym XF86AudioLowerVolume exec --no-startup-id /home/mbc/.bin/changeVolume down
+bindsym XF86AudioMute exec --no-startup-id /home/mbc/.bin/changeVolume toggle
 
 for_window [title="Still Alive Animation"] border pixel 0
 for_window [class="Gxmessage"] floating enable
@@ -187,14 +187,19 @@ exec --no-startup-id urxvtd
 exec --no-startup-id "bash $HOME/.fehbg"
 exec --no-startup-id /usr/bin/pasystray
 exec --no-startup-id nm-applet
+exec --no-startup-id redshift -l 55.83:12.54 -t 6500:35
+
+# When lauching i3, set a sensible volume.
+exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 30%
 
 bindsym XF86Mail exec mpc toggle
 bindsym XF86HomePage exec /home/mbc/.bin/keylang-toggle
 bindsym XF86Calculator exec /home/mbc/.bin/calculator
 bindsym Print exec /home/mbc/.bin/screenshot
 
-#bindsym XF86MonBrightnessUp   exec xbacklight -inc 20
-#bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+# add "mbc ALL=(ALL) NOPASSWD:/usr/bin/brightnessctl" to sudoers
+bindsym XF86MonBrightnessUp   exec /home/mbc/.bin/changeBrightness up
+bindsym XF86MonBrightnessDown exec /home/mbc/.bin/changeBrightness down
 
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev

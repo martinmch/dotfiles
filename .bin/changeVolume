@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+# Arbitrary but unique message tag
+msgTag="myvolume"
+
+isMute=$(pactl get-sink-mute @DEFAULT_SINK@)
+opt="$1"
+case "$opt" in
+    up)
+        [ "$isMute" = "Mute: yes" ] && exit 0
+        vol="+5%"
+        ;;
+    down)
+        [ "$isMute" = "Mute: yes" ] && exit 0
+        vol="-5%"
+        ;;
+    toggle)
+        wasMute=$(pactl get-sink-mute @DEFAULT_SINK@)
+        pactl set-sink-mute @DEFAULT_SINK@ toggle
+        vol="+0%"
+        if [ "$wasMute" = "Mute: no" ]; then
+            icon="audio-volume-muted-symbolic"
+            msg="Volume muted"
+            vol=0
+            dunstify -a "changeVolume" \
+                -u low \
+                -i audio-volume-muted-symbolic \
+                -h string:x-dunst-stack-tag:$msgTag "Volume muted"
+            exit 0
+        fi
+        ;;
+    *)
+        echo "Invalid options"
+        exit 1
+esac
+
+pactl set-sink-volume @DEFAULT_SINK@ "$vol"
+
+newVol=$(pactl get-sink-volume @DEFAULT_SINK@ \
+    | grep  -oP '(?<=/ ) *[^ /.]*(?=%)' \
+    | head -1)
+
+DOTS=$(/home/mbc/.bin/dotbar "${newVol}")
+
+dunstify -a "changeVolume" \
+    -u low \
+    -i audio-volume-high-symbolic \
+    -h string:x-dunst-stack-tag:$msgTag \
+    "Volume: ${newVol}
+${DOTS}"
+
+# Play the volume changed sound
+canberra-gtk-play -i audio-volume-change -d "changeVolume"

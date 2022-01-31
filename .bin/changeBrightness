@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# changeBrightness
+
+msgTag="mybrightness"
+
+opt="$1"
+case "$opt" in
+    up)
+        vol="+5%"
+        ;;
+    down)
+        vol="5%-"
+        ;;
+    *)
+        echo "Invalid options"
+        exit 1
+esac
+
+newVol=$(sudo brightnessctl set "$vol" | grep -oP '(?<=\()[0-9]*')
+
+DOTS=$(/home/mbc/.bin/dotbar "${newVol}")
+
+dunstify -a "changeBrightness" \
+    -u low \
+    -i display-brightness-symbolic \
+    -h string:x-dunst-stack-tag:$msgTag \
+    "Brightness: ${newVol}%
+${DOTS}"
+
+# Play the volume changed sound
+canberra-gtk-play -i audio-volume-change -d "changeVolume"
