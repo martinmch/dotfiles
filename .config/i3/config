@@ -10,8 +10,8 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# open latest screenshot
-bindsym $mod+p exec feh $(cat $HOME/.lastscreen)
+# open latest screenshots sorted
+bindsym $mod+p exec feh $HOME/pictures/screenshots/ --reverse
 
 # kill focused window
 bindsym $mod+Shift+q kill
