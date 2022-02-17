@@ -1,8 +1,7 @@
 ! vim:ts=8
 
 #ifdef HIDPI
-! pkg_add xcursor-dmz
-Xcursor.theme:			Simp1e
+!Xcursor.theme:			Simp1e
 Xcursor.size:			64
 
 Xft.dpi:			148
@@ -113,7 +112,7 @@ URxvt.keysym.Mod4-v:		eval:paste_clipboard
 
 ! support right-clicking urls to open them
 URxvt.perl-ext-common:		default,matcher,selection-to-clipboard,-selection
-URxvt.url-launcher:		HOME/bin/firefox
+URxvt.url-launcher:		/home/mbc/snap/bin/firefox
 URxvt.matcher.button:		3
 URxvt.matcher.rend.0:		Uline
 
@@ -147,4 +146,10 @@ XClock*.padding:		40
 XClock*.face:			Microsoft Sans Serif:size=20
 XClock*.strftime:		%a %b %d  %H:%M
 XClock*.background:		#c0c7c8
+
+! Support control left right in command line
+URxvt.keysym.Control-Up:   \033[1;5A
+URxvt.keysym.Control-Down:   \033[1;5B
+URxvt.keysym.Control-Left:   \033[1;5D
+URxvt.keysym.Control-Right:   \033[1;5C
 
