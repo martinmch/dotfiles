@@ -45,8 +45,6 @@ feedlist-title-format "%N %V %> %u feeds with new articles"
 
 articlelist-title-format "%T"
 
-html-renderer "w3m -dump -T text/HTML -cols 72"
-
 highlight article "^(Feed|Title|Author|Link|Date):.*" yellow default bold
 
 notify-format "News (%n unread articles, %f unread feeds)"
