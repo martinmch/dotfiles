@@ -1,0 +1,22 @@
+#!/bin/bash
+
+IMAGE=/tmp/i3lock.png
+PLAYING_BEFORE=$(mpc | grep playing)
+
+# Takes a screenshot
+scrot "$IMAGE"
+# Scale it down and then scale it up (blur)
+convert -scale 2.5% -resize 4000% $IMAGE $IMAGE
+
+
+if [ ! -z "$PLAYING_BEFORE" ]; then
+    mpc pause > /dev/null
+fi;
+
+i3lock -ni $IMAGE
+
+if [ ! -z "$PLAYING_BEFORE" ]; then
+    mpc play > /dev/null
+fi;
+
+rm $IMAGE
