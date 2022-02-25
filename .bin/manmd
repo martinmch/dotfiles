@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+if [ ! -f "$1" ];
+then
+    echo "manmd: $1: Not a file"
+    exit 1
+fi
+
+man <(pandoc --standalone --to man "$1" -o -)
