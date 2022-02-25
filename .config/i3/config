@@ -1,6 +1,6 @@
 set $mod Mod1
 
-font xft:Noto Mono Bold 14
+font xft:Noto Mono Bold 12
 
 focus_follows_mouse no
 
@@ -51,6 +51,7 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
+bindsym $mod+u sticky toggle
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -192,7 +193,6 @@ exec --no-startup-id redshift -l 55.83:12.54 -t 6500:35
 # When lauching i3, set a sensible volume.
 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 30%
 
-bindsym XF86Mail exec mpc toggle
 bindsym XF86HomePage exec /home/mbc/.bin/keylang-toggle
 bindsym XF86Calculator exec /home/mbc/.bin/calculator
 bindsym Print exec /home/mbc/.bin/screenshot
@@ -204,5 +204,5 @@ bindsym XF86MonBrightnessDown exec /home/mbc/.bin/changeBrightness down
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
-bindsym Mod4+l exec i3lock -c "#000000"
+bindsym Mod4+l exec /home/mbc/.bin/lock
 exec xset b off
