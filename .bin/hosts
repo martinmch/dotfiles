@@ -1,0 +1,38 @@
+#!/usr/bin/env sh
+
+HOSTFILE="/etc/hosts"
+EXEC=$(basename ${0})
+
+if [ ! -r $HOSTFILE ];
+then
+    echo "$EXEC: $HOSTFILE: Permission denied (read)" 1>&2
+    exit 1
+fi
+
+if [ ! -w $HOSTFILE ];
+then
+    echo "$EXEC: $HOSTFILE: Permission denied (write)" 1>&2
+    exit 1
+fi
+
+case "$1" in
+    "restrictive")
+        echo "Activating restrictive hosts file"
+        HOSTS="hosts.restrictive"
+        ;;
+    "default")
+        echo "Activating default hosts file"
+        HOSTS="hosts.default"
+        ;;
+    *)
+        echo "Currently running: $(readlink /etc/hosts)"
+        echo "Available: restrictive default"
+        exit 1
+        ;;
+esac
+
+if [ ! -z "${HOSTS}" ];
+then
+    /usr/bin/unlink /etc/hosts
+    ln -s "${HOSTS}" /etc/hosts
+fi
