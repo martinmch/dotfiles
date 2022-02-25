@@ -27,11 +27,12 @@ set undodir=~/.vim/.runtime/undo
 set laststatus=2
 set backspace=2
 set path+=**
+set formatoptions+=r
 
 set wildmenu
 set wildmode=longest:full,full
 set wildignore+=*.o,*~,*.exe,*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store,*.dll,*.pdf
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,eol:¬,trail:·
 set completeopt=menuone,longest,preview
 set complete+=kspell
 set fileencodings=utf-8
