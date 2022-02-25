@@ -9,3 +9,6 @@ alias mp='mpv --playlist="$(find $HOME/music/playlists | fzf)"'
 alias mps='mpv --shuffle --playlist="$(find $HOME/music/playlists | fzf)"'
 alias mp3='mpv "$(find $HOME/music/playlists | fzf)"'
 
+if [ "$HIDPI" = "1" ]; then
+  alias drawio="drawio --force-device-scale-factor=2"
+fi

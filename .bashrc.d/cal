@@ -1,1 +1,1 @@
-alias calendar="calendar -f /home/mbc/.calendar/calendar -A 7"
+alias calendar="calendar -f /home/mbc/documents/calendar/calendar -A 7"

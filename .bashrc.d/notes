@@ -44,6 +44,8 @@ n() {
             filepath="$(buildfile "$NOTEDIR"/"$1")"
             filename=$(basename $filepath)
             fileext=${filename##*.}
+            # Create extension for markdown being converted to pdf or html and
+            # shown, and man.markdown rendered as man pages
             if echo "$NOTEXDGEXT" | grep -qw "$fileext"; then
                 xdg-open "$filepath"
             else

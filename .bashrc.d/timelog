@@ -32,7 +32,7 @@ then
 
     complete -F _clock_in cin
 
-    rm -f -- "$HOME/timelog"
+    unlink "$HOME/timelog"
     ln -s "$TIMELOG_C" "$HOME/timelog"
     PS1=$(echo "$PS1" | sed 's/>/$(_current_task)>/')
 fi
