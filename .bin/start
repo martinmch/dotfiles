@@ -1,0 +1,33 @@
+#!/usr/bin/env sh
+
+TMPPATH="/tmp/start.md"
+
+cat << EOF > "$TMPPATH"
+My Morning Checklist
+====================
+
+Sweep
+-----
+
+[ ] Close/Minimize Teams / IRC / Discord
+[ ] Enable Do Not Disturb on Phone
+[ ] Process personal email inbox (remember 2-minute rule)
+[ ] Process work email inbox (remember 2-minute rule)
+[ ] Process Teams notifications
+[ ] Check work calendar, anything pressing?
+
+Process
+-------
+
+[ ] Process Todo inbox (top to bottom)
+[ ] Review all projects in +Review
+
+Start
+-----
+
+[ ] Switch to +Work
+[ ] If no items in +Work, go flag some things
+[ ] Pick one and start working!
+EOF
+
+vim "$TMPPATH"
