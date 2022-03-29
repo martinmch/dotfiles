@@ -73,3 +73,5 @@ function! InsertTabWrapper()
 endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-p>
+
+iabbrev <expr> ddate strftime('%Y-%m-%d')
