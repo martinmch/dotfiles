@@ -11,6 +11,7 @@ set tw=78    " text width
 set ts=4     " tab stop
 set sw=4     " shift widt
 set sts=2    " soft tab stops
+set fo+=r
 set ignorecase smartcase " ignore case in search unless capital in string.
 set noswapfile
 set et
