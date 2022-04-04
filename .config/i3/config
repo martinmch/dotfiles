@@ -203,6 +203,7 @@ bindsym XF86MonBrightnessDown exec /home/mbc/.bin/changeBrightness down
 
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+x exec /home/mbc/.bin/2famenu
 
 bindsym Mod4+l exec /home/mbc/.bin/lock
 exec xset b off
