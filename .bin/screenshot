@@ -3,6 +3,9 @@
 STAMP="$HOME/pictures/screenshots/$(date +"%y-%m-%d--%H-%M-%S").png"
 cmd=$(printf "1.section\n2.fullscreen\n3.focused" \
     | dmenu  -l 3 -p 'Choose screenshot type:')
+
+sleep 1
+
 case "${cmd}" in
   3.focused)
       ARGS="-u";
@@ -16,7 +19,6 @@ case "${cmd}" in
   *) exit 1;;
 esac
 
-# TODO: Change mpv to system notification sound daemon.
 scrot ${ARGS} ${STAMP} \
-    && notify-send -u low 'Screenshot' "Screenshot of ${DESCRIPTION} saved" \
-    && canberra-gtk-play -i camera-shutter -d "screenshot"
+  && notify-send -u low 'Screenshot' "Screenshot of ${DESCRIPTION} saved" \
+  && canberra-gtk-play -i camera-shutter -d "screenshot"
