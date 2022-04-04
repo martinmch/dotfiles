@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+shopt -s nullglob globstar
+
+typeit=0
+if [[ $1 == "--type" ]]; then
+	typeit=1
+	shift
+fi
+
+password_files=( ~/.2farc )
+
+words=$(cat ~/.2farc | awk -F'=' '{print $1}' | sed 's/_2fa_key//')
+key=$(printf '%s\n' "${words[@]}" | dmenu "$@")
+
+[[ -n $key ]] || exit
+code=$(/home/mbc/.bin/2fa "$key")
+
+echo "$code" | xclip -r -i
+
+#if [[ $typeit -eq 0 ]]; then
+#	pass show -c "$password" 2>/dev/null
+#else
+#	pass show "$password" | { IFS= read -r pass; printf %s "$pass"; } |
+#		xdotool type --clearmodifiers --file -
+#fi
+
