@@ -6,7 +6,7 @@ filetype plugin indent on
 
 set autoread
 set rnu
-set ts=2 sw=2 et sts=2 tw=78 cc=81
+set ts=2 sw=2 et sts=2 tw=81 cc=81
 set fo+=r
 set ignorecase smartcase " ignore case in search unless capital in string.
 set noswapfile
