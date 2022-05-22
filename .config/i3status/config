@@ -9,6 +9,7 @@
 general {
         colors = true
         interval = 5
+        separator = ""
 }
 
 # order += "ipv6"
@@ -18,6 +19,7 @@ general {
 # order += "battery all"
 # order += "load"
 order += "tztime local"
+order += "tztime UTC"
 
 wireless _first_ {
         format_up = "W: (%quality at %essid) %ip"
@@ -36,6 +38,11 @@ battery all {
 
 tztime local {
         format = "%a %H:%M"
+}
+
+tztime UTC {
+        format = "(%HZ)"
+        timezone = "UTC"
 }
 
 load {
