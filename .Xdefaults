@@ -61,7 +61,7 @@ URxvt.geometry:			80x40
 #ifdef HIDPI
 *.font:				-*-lucida-medium-r-*-*-24-*-*-*-*-*-*-*
 #else
-*.font:				-*-lucida-medium-r-*-*-12-*-*-*-*-*-*-*
+*.font:				-*-lucida-medium-r-*-*-14-*-*-*-*-*-*-*
 #endif
 
 ! xterm-specific settings
@@ -93,13 +93,13 @@ URxvt.scrollTtyKeypress:	true
 XTerm.visualBell:		false
 
 #ifdef HIDPI
-URxvt.font:			    xft:Noto Mono:size=12
-URxvt.boldFont:			xft:Noto Mono:weight=bold:size=12
+URxvt.font:			    xft:Noto Mono:size=16
+URxvt.boldFont:			xft:Noto Mono:weight=bold:size=16
 URxvt.letterSpace:		-2
 URxvt.lineSpace:		0
 #else
-URxvt.font:			xft:Noto Mono:size=8:antialias=true
-URxvt.boldFont:			xft:Noto Mono:size=8:weight=bold:antialias=true
+URxvt.font:			xft:Noto Mono:size=12:antialias=true
+URxvt.boldFont:			xft:Noto Mono:size=12:weight=bold:antialias=true
 URxvt.letterSpace:		0
 #endif
 
