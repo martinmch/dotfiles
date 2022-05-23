@@ -42,3 +42,4 @@ let g:netrw_winsize = 20
 
 "color hipster
 color default
+highlight Comment ctermfg=red
