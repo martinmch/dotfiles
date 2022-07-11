@@ -93,8 +93,8 @@ URxvt.scrollTtyKeypress:	true
 XTerm.visualBell:		false
 
 #ifdef HIDPI
-URxvt.font:			    xft:Noto Mono:size=16
-URxvt.boldFont:			xft:Noto Mono:weight=bold:size=16
+URxvt.font:			    xft:Noto Mono:size=12
+URxvt.boldFont:			xft:Noto Mono:weight=bold:size=12
 URxvt.letterSpace:		-2
 URxvt.lineSpace:		0
 #else
