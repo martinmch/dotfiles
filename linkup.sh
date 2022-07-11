@@ -72,11 +72,4 @@ install_firefox () {
     rm firefox.tar.bz2
 }
 
-
-# git clone notes $HOME/notes
-# git clone todo $HOME/todo
-
-# Nextcloud:
-#   music
-#   pictures
-#   books
+# Setup pcloud
