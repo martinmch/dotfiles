@@ -1,8 +1,10 @@
 #!/usr/bin/env sh
 
-STAMP="$HOME/pictures/screenshots/$(date +"%y-%m-%d--%H-%M-%S").png"
+STAMP="$HOME/pictures/screenshots/$(hostname)-$(date +"%y-%m-%d--%H-%M-%S").png"
 cmd=$(printf "1.section\n2.fullscreen\n3.focused" \
     | dmenu  -l 3 -p 'Choose screenshot type:')
+
+mkdir -p "$HOME/pictures/screenshots"
 
 sleep 1
 
