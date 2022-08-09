@@ -1,6 +1,7 @@
 filetype off
 call plug#begin('~/.vim/plugged/')
 Plug 'tpope/vim-fugitive'
+Plug 'ledger/vim-ledger'
 call plug#end()
 filetype plugin indent on
 
