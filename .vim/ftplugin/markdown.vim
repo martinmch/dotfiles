@@ -17,3 +17,9 @@ set statusline+=\ %{WordCount()}
 " Markdown abbreviations
 iabbrev --- ---<CR>title:<CR>date: <esc>:put =strftime('%Y-%m-%d')<CR>kJo---<esc>kkA
 iabbrev <expr> ddate strftime('%Y-%m-%d')
+
+iabbrev img ![Description](link)<esc>Flciw
+iabbrev link [Description](link)<esc>Flciw
+
+" Allow `gf` to navigate to filename.md from "filename".
+setl suffixesadd+=.md
