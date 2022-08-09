@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Conjures a dot graph from a directory of notes containing
+# files links surrounded with [[...]].
+#
+# To create a "live" graph of all references, run the following loop:
+# MAP=$(mktemp)
+# while true;
+# do
+#   notemap > "$MAP";
+#   dot -Tpng "$MAP" > "$MAP".png;
+#   sleep 1;
+# done
+
+
+echo "digraph D {"
+echo ""
+grep -o -d skip '\[\[[^][]*]]' * | sort | uniq | sed 's/^/  "/; s/:\[\[/" -> "/;s/\]\]$/"/'
+echo "}"
