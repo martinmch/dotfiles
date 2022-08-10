@@ -9,11 +9,13 @@ function start_agent {
     ssh-add;
 }
 
-if [ -f "${SSH_ENV}" ]; then
-    . "${SSH_ENV}" > /dev/null
-    ps -ef | grep "${SSH_AGENT_PID}.*ssh-agent$" > /dev/null || {
-        start_agent;
-    }
-else
-    start_agent;
-fi
+function ensure_ssh_agent {
+  if [ -f "${SSH_ENV}" ]; then
+      . "${SSH_ENV}" > /dev/null
+      ps -ef | grep "${SSH_AGENT_PID}.*ssh-agent$" > /dev/null || {
+          start_agent;
+      }
+  else
+      start_agent;
+  fi
+}
