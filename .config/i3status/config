@@ -19,7 +19,6 @@ general {
 # order += "battery all"
 # order += "load"
 order += "tztime local"
-order += "tztime UTC"
 
 wireless _first_ {
         format_up = "W: (%quality at %essid) %ip"
