@@ -1,0 +1,33 @@
+! solarized (light)
+
+! black
+*.color0:			FG
+*.color8:			#333333
+
+! red
+*.color1:			#dc322f
+*.color9:			#cb4b16
+
+! green
+*.color2:			#859900
+*.color10:			#93a1a1
+
+! yellow
+*.color3:			#b58900
+*.color11:			#839496
+
+! blue
+*.color4:			#268bd2
+*.color12:			#657b83
+
+! magenta
+*.color5:			#d33682
+*.color13:			#6c71c4
+
+! cyan
+*.color6:			#2aa198
+*.color14:			#586e75
+
+! white (gray)
+*.color7:			#d9d7cc
+*.color15:			#e5e5e5
