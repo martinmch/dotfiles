@@ -72,6 +72,8 @@ hi! link          htmlBold        Special
 hi! link          htmlItalic      Number
 hi! link          Title           Function
 
+hi ColorColumn ctermbg=15
+
 " Unhighlighted:
 " CursorIM
 " CursorColumn
