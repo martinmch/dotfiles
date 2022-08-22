@@ -19,12 +19,10 @@ URxvt.geometry:			80x40
 *.scrollbar.width:		10
 
 
-
-
 #ifdef HIDPI
-*.font:				-*-lucida-medium-r-*-*-24-*-*-*-*-*-*-*
+*.font: xft:Monaco:pixelsize=24:antialias=true:hinting=true
 #else
-*.font:				-*-lucida-medium-r-*-*-14-*-*-*-*-*-*-*
+*.font: xft:Monaco:pixelsize=14:antialias=true:hinting=true
 #endif
 
 ! xterm-specific settings
@@ -56,13 +54,13 @@ URxvt.scrollTtyKeypress:	true
 XTerm.visualBell:		false
 
 #ifdef HIDPI
-URxvt.font:			    xft:Noto Mono:size=12
-URxvt.boldFont:			xft:Noto Mono:weight=bold:size=12
+URxvt.font:		        xft:Monaco:size=24
+URxvt.boldFont:			xft:Monaco:style=Heavy:size=24
 URxvt.letterSpace:		-2
 URxvt.lineSpace:		0
 #else
-URxvt.font:			xft:Noto Mono:size=12:antialias=true
-URxvt.boldFont:			xft:Noto Mono:size=12:weight=bold:antialias=true
+URxvt.font:			xft:Monaco:size=14:antialias=true
+URxvt.boldFont:			xft:Monaco:size=14:style=Heavy:antialias=true
 URxvt.letterSpace:		0
 #endif
 
@@ -89,30 +87,8 @@ XTerm.*.Scrollbar.translations: #override\
 
 SshAskpass*inputTimeout:	15
 
-! invert for qconsole
-qconsole.*.background:		FG
-qconsole.*.foreground:		#999999
-qconsole.*.borderColor:		FG
-qconsole.*.color0:		#999999
-
-#ifdef HIDPI
-SshAskpass*Button.font:		-*-lucida-medium-r-*-*-32-*-*-*-*-*-*-*
-SshAskpass*Dialog.font:		-*-lucida-medium-r-*-*-36-*-*-*-*-*-*-*
-SshAskpass*Indicator.width:	40
-SshAskpass*Indicator.height:	20
-#endif
-
-XClock*.update:			1
-XClock*.analog:			False
-XClock*.render:			True
-XClock*.padding:		40
-XClock*.face:			Microsoft Sans Serif:size=20
-XClock*.strftime:		%a %b %d  %H:%M
-XClock*.background:		#c0c7c8
-
 ! Support control left right in command line
 URxvt.keysym.Control-Up:   \033[1;5A
 URxvt.keysym.Control-Down:   \033[1;5B
 URxvt.keysym.Control-Left:   \033[1;5D
 URxvt.keysym.Control-Right:   \033[1;5C
-
