@@ -34,6 +34,9 @@ fi
 (
     cd "$dotfiles"
     for f in .???*; do
+	  if [ -d  "$f" ]; then
+	      continue
+	  fi
         rm -f ~/$f
         (cd ~/; ln -s "$dotfiles"/$f $f)
     done
@@ -43,8 +46,15 @@ fi
 # Done linking up dotfiles.
 # Now we need to set up secrets, files and applications.
 
-mkdir /usr/share/fonts/truetype/ttf-monaco
-ln -s /usr/share/fonts/truetype/ttf-monaco/Monaco_Linux.ttf $(dirname "$0")/fonts/ttf-monaco/Monaco_Linux.ttf
+(
+  sudo mkdir -p /usr/share/fonts/truetype/ttf-monaco
+  sudo ln -s $(dirname "$0")/fonts/ttf-monaco/Monaco_Linux.ttf /usr/share/fonts/truetype/ttf-monaco/Monaco_Linux.ttf
+  sudo mkdir -p /usr/share/fonts/truetype/sfp
+  sudo mkdir -p /usr/share/fonts/opentype/sfp
+  for f in $(dirname "$0")/fonts/San-Francisco-Pro-Fonts/*.otf; do sudo ln -s "$f" /usr/share/fonts/opentype/sfp/"$f"; done
+  for f in $(dirname "$0")/fonts/San-Francisco-Pro-Fonts/*.ttf; do sudo ln -s "$f" /usr/share/fonts/truetype/sfp/"$f"; done
+
+)
 
 setup_gitsecret () {
     echo<<EOF > ~/.gitconfig_secret
