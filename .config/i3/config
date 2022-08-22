@@ -1,6 +1,6 @@
 set $mod Mod1
 
-font xft:Noto Mono Bold 12
+font xft:SF Pro Text:style=Medium 18
 
 focus_follows_mouse no
 
