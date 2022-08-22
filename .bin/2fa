@@ -12,6 +12,13 @@ function _2fa ()
 
 complete -F _2fa 2fa
 
+_progname=$(basename "${0}")
+
+if [[ -z "${1}" ]]; then
+  echo "$_progname: what key do you want?";
+  exit;
+fi
+
 keyName="${1}_2fa_key"
 # Create a subshell to prevent keys from being sourced to environment
 
@@ -22,6 +29,6 @@ keyName="${1}_2fa_key"
     then
         oathtool -b --totp "${!keyName}";
     else
-        echo "$0: cannot access '$1': No such 2fa key";
+        echo "$_progname: cannot access '$1': No such 2fa key";
     fi
 )
