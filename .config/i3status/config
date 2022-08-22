@@ -19,6 +19,7 @@ general {
 # order += "battery all"
 # order += "load"
 order += "tztime local"
+order += "tztime UTC"
 
 wireless _first_ {
         format_up = "W: (%quality at %essid) %ip"
@@ -37,6 +38,8 @@ battery all {
 
 tztime local {
         format = "%a %H:%M"
+        align="center"
+        min_width=10
 }
 
 tztime UTC {
