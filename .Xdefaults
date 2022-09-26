@@ -1,4 +1,7 @@
 ! vim:ts=8
+!
+URxvt*foreground      : #aaaaaa
+URxvt*background      : #262626
 
 #ifdef HIDPI
 !Xcursor.theme:			Simp1e
@@ -6,9 +9,6 @@ Xcursor.size:			64
 
 Xft.dpi:			148
 #endif
-
-*.background:			BG
-*.foreground:			FG
 
 XTerm*geometry:			80x40
 URxvt.geometry:			80x40
