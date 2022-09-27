@@ -8,7 +8,7 @@ highlight article "\\[image\\ [0-9]+\\]" green default
 feed-sort-order unreadarticlecount
 text-width 80
 show-read-feeds no
-browser "/home/mbc/.bin/browser.sh %u"
+browser "/home/mbc/.bin/browser.bash %u"
 
 # OLD
 highlight all "linux,Linux" red magenta bold
