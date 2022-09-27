@@ -1,2 +1,0 @@
-#!/usr/bin/env sh
-ssh -T sshcert@sshcert < ~/.ssh/id_rsa.pub > ~/.ssh/id_rsa-cert.pub
