@@ -5,7 +5,7 @@ call plug#end()
 
 set autoread
 set nu
-set ts=4 sw=4 et sts=4 tw=81 cc=81
+set ts=4 sw=4 et sts=4 tw=78 cc=81
 set fo+=r
 set ignorecase smartcase " ignore case in search unless capital in string.
 set noswapfile
