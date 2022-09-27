@@ -25,6 +25,7 @@ set wildignore+=*.o,*~,*.exe,*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store,*.dll,*.pdf
 set list lcs=tab:▸\ ,trail:·
 set completeopt=menuone,longest,preview
 set complete+=kspell
+set grepprg=grep\ -IrsnH
 set fileencodings=utf-8
 set statusline=%t\ %y%h%m%r%=%P\ %c,%l/%L
 
