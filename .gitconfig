@@ -13,7 +13,7 @@
     last = log -1 HEAD --graph --format=format:'%C(auto)%h%d %s - %C(blue)%an%C(reset), %ar'
     hublink = !gitlink
     hl = !gitlink
-    pushall = git remote | xargs -L1 git push --all
+    pushall = !git remote | xargs -L1 git push --all
     churn = !git-churn
 [core]
     editor = vim
