@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-trap "rmdir ~/internt" EXIT
-
-rclone config create internt onedrive drive_type documentLibrary drive_id b\!gh6F27rDaESSi_4F-weqevzeZ81rj25EpUZ2vC4o1e5KL5TJiAXNSYPfS9KDnKSW
-mkdir -p ~/internt
-rclone mount internt: ~/internt --vfs-cache-mode=writes
-
