@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+CMDS="Play/Pause\nList\nNext\nPrev\nRandom\nVolume"
+COUNT=$(echo -e "$CMDS" | wc -l)
+
+format="\[%position%\] %artist% - %album% - %title%"
+
+if ! pgrep mpd &>/dev/null ; then
+  echo "mpd not running; launching"
+  mpd
+fi
+
+current=$(mpc current --format ${format})
+current="Currently playing: ${current:-nothing}"
+
+cmd="${1:-$(echo -e ${CMDS} | dmenu -i -l ${COUNT} -p ${current})}"
+cmd="${cmd,,}"
+
+
+case "$cmd" in
+    list)
+        song=$(mpc playlist --format "${format}" | dmenu -i -l 5)
+        track=$(echo $song | grep -o -E -m 1 '[0-9]*')
+        mpc play "${track}" ;;
+    play/pause)
+        mpc toggle ;;
+    next)
+        mpc next ;;
+    prev)
+        mpc prev ;;
+    random)
+        mpc random ;;
+    volume)
+        mpc volume $(echo "" | dmenu -p "Volume$(mpc status %volume%):") ;;
+esac
+
