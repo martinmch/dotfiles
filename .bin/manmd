@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+if [ -z "$1" ];
+then
+    echo "manmd: Please specify a filename"
+    exit 1
+fi
+
 if [ ! -f "$1" ];
 then
     echo "manmd: $1: Not a file"
