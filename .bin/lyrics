@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+artist=$(mpc -f %artist% | head -n 1)
+title=$(mpc -f %title% | head -n 1)
+file=$(mpc -f %file% | head -n 1)
+
+absolutePath=$HOME/music/${file}
+
+if [[ $absolutePath = *" "* ]]; then
+    echo "lyrics: can't handle file names with spaces yet"
+    exit 1
+fi
+
+# Trim extension
+fileNoExtension=${file%.*}
+newAbsolutePath=$HOME/music/lyrics/${fileNoExtension}.cho
+
+if [[ -f "$newAbsolutePath" ]]; then
+    # Lyrics have already been downloaded
+    cat "$newAbsolutePath"
+    exit 0
+fi
+
+lyrics=$(curl -s --get "https://makeitpersonal.co/lyrics" \
+    --data-urlencode "artist=$artist" --data-urlencode "title=$title")
+
+error="Sorry, We don't have lyrics for this song yet."
+
+if [[ $lyrics = *${error}* ]]; then
+    echo "lyrics: song not found on remote"
+    exit 1
+fi
+
+directory=$(dirname $newAbsolutePath)
+mkdir -p "$directory"
+
+echo "${newAbsolutePath}"
+cat<<EOF | tee "${newAbsolutePath}"
+{title: $title}
+{artist: $artist}
+
+$lyrics
+EOF
