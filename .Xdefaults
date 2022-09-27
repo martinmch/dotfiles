@@ -20,7 +20,7 @@ URxvt.geometry:			80x40
 
 
 #ifdef HIDPI
-*.font: xft:Monaco:pixelsize=24:antialias=true:hinting=true
+*.font: xft:Monaco:pixelsize=18:antialias=true:hinting=true
 #else
 *.font: xft:Monaco:pixelsize=14:antialias=true:hinting=true
 #endif
@@ -54,8 +54,8 @@ URxvt.scrollTtyKeypress:	true
 XTerm.visualBell:		false
 
 #ifdef HIDPI
-URxvt.font:		        xft:Monaco:size=24
-URxvt.boldFont:			xft:Monaco:style=Heavy:size=24
+URxvt.font:		        xft:Monaco:size=18
+URxvt.boldFont:			xft:Monaco:style=Heavy:size=18
 URxvt.letterSpace:		-2
 URxvt.lineSpace:		0
 #else
@@ -92,3 +92,31 @@ URxvt.keysym.Control-Up:   \033[1;5A
 URxvt.keysym.Control-Down:   \033[1;5B
 URxvt.keysym.Control-Left:   \033[1;5D
 URxvt.keysym.Control-Right:   \033[1;5C
+
+URxvt*foreground      : #aaaaaa
+URxvt*background      : #262626
+
+!black
+*color0 :            #222222
+*color8 :            #454545
+!red
+*color1 :            #B22222
+*color9 :            #FA8072
+!green
+*color2 :            #556B2F
+*color10:            #779A3E
+!yellow
+*color3 :            #B8860B
+*color11:            #DAA520
+!blue
+*color4 :            #4682B4
+*color12:            #6495ED
+!magenta
+*color5 :            #9932CC
+*color13:            #DA70D6
+!cyan
+*color6 :            #87CEEB
+*color14:            #B0E0E6
+!white
+*color7 :            #C0C0C0
+*color15:            #FFFFFF
