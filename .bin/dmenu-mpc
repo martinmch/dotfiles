@@ -2,37 +2,61 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-CMDS="Play/Pause\nList\nNext\nPrev\nRandom\nVolume"
-COUNT=$(echo -e "$CMDS" | wc -l)
-
-format="\[%position%\] %artist% - %album% - %title%"
+format="\[%position%\] %artist% - %album% - %title%|%file%"
+CMDS="Toggle playback\nPlaylist\nNext\nPrev\nRandom\nVolume\nEnqueue\nPlay\nClear"
+count=$(echo -e "$CMDS" | wc -l)
+last_id=""
+current=$(mpc current --format ${format})
+prompt="Currently playing: ${current:-nothing}"
+cmd=$prompt
 
 if ! pgrep mpd &>/dev/null ; then
   echo "mpd not running; launching"
   mpd
 fi
 
-current=$(mpc current --format ${format})
-current="Currently playing: ${current:-nothing}"
+run_dmenu () {
+    cat | dmenu -i -l ${count} -p ${cmd}
+}
 
-cmd="${1:-$(echo -e ${CMDS} | dmenu -i -l ${COUNT} -p ${current})}"
-cmd="${cmd,,}"
-
-
-case "$cmd" in
-    list)
-        song=$(mpc playlist --format "${format}" | dmenu -i -l 5)
-        track=$(echo $song | grep -o -E -m 1 '[0-9]*')
-        mpc play "${track}" ;;
-    play/pause)
-        mpc toggle ;;
+cmd="${1:-$(echo -e ${CMDS} | run_dmenu)}"
+case "${cmd,,}" in
+    playlist)
+        track=$(mpc playlist --format "${format}"
+            | run_dmenu | grep -oEm 1 '[0-9]*')
+        mpc play "${track}" >/dev/null;;
+    'toggle playback')
+        mpc toggle >/dev/null;;
     next)
-        mpc next ;;
+        mpc next >/dev/null;;
     prev)
-        mpc prev ;;
+        mpc prev >/dev/null;;
     random)
-        mpc random ;;
+        mpc random >/dev/null;;
     volume)
-        mpc volume $(echo "" | dmenu -p "Volume$(mpc status %volume%):") ;;
+        cmd="Volume$(mpc status %volume%):"
+        mpc volume $(echo | run_dmenu) >/dev/null;;
+    play)
+        last_id=$(mpc status "%length%")
+        ;&
+    add)
+        CMDS="Artists\nAlbums\nTitles\nPlaylists"
+        cmd="${2:-$(echo -e ${CMDS} | run_dmenu)}"
+        case "${cmd,,}" in
+            artists)
+                artist=$(mpc list artist | run_dmenu)
+                mpc findadd artist "${artist}" >/dev/null;;
+            albums)
+                album=$(mpc list album | run_dmenu)
+                mpc findadd album "${album}" >/dev/null;;
+            titles)
+                title=$(mpc list title | run_dmenu)
+                mpc findadd title "${title}" >/dev/null;;
+            playlists)
+                playlist=$(mpc lsplaylist | run_dmenu)
+                mpc load "${playlist}" >/dev/null;;
+        esac
+        if [[ ! -z "$last_id" ]]; then mpc play $((last_id+1)) >/dev/null; fi;;
+    clear)
+        mpc clear >/dev/null;;
 esac
-
