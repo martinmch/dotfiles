@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+xrdb -DHIDPI=1 -DHOME=$HOME < ~/.Xdefaults
+
