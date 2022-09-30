@@ -7,13 +7,15 @@ if ! pgrep mpd &>/dev/null ; then
   mpd
 fi
 
-format="\[%position%\] %artist% - %album% - %title%|%file%"
+format="\[%position%\] %artist% - %title%|%file%"
 CMDS="Toggle playback\nPlaylist\nNext\nPrev\nRandom\nVolume\nEnqueue\nPlay\nClear"
 count=$(echo -e "$CMDS" | wc -l)
 last_id=""
 current=$(mpc current --format ${format})
-prompt="Currently playing: ${current:-nothing}"
-cmd=$prompt
+prompt="Playing: ${current:-nothing}"
+cmd="${prompt:0:55}..."
+
+format="\[%position%\] %artist% - %album% - %title%|%file%"
 
 run_dmenu () {
     cat | dmenu -i -l ${count} -p ${cmd}
