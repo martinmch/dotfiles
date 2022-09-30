@@ -36,7 +36,7 @@ run_dmenu () {
 cmd="${1:-$(echo -e "${CMDS}" | run_dmenu)}"
 case "${cmd,,}" in
     playlist)
-        track=$(mpc playlist --format "${format}"
+        track=$(mpc playlist --format "${format}" \
             | run_dmenu | grep -oEm 1 '[0-9]*')
         mpc play "${track}" >/dev/null;;
     'toggle playback')
