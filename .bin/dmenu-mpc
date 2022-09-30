@@ -13,6 +13,7 @@ Toggle playback
 Playlist
 Next
 Prev
+Replay
 Random
 Volume
 Enqueue
@@ -49,6 +50,8 @@ case "${cmd,,}" in
     volume)
         cmd="Volume$(mpc status %volume%):"
         mpc volume $(echo | run_dmenu) >/dev/null;;
+    replay)
+        mpc play $(mpc current --format %position%);;
     play)
         last_id=$(mpc status "%length%")
         ;&
