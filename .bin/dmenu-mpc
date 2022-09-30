@@ -8,7 +8,18 @@ if ! pgrep mpd &>/dev/null ; then
 fi
 
 format="\[%position%\] %artist% - %title%|%file%"
-CMDS="Toggle playback\nPlaylist\nNext\nPrev\nRandom\nVolume\nEnqueue\nPlay\nClear"
+CMDS=$(cat << 'options'
+Toggle playback
+Playlist
+Next
+Prev
+Random
+Volume
+Enqueue
+Play
+Clear
+options
+)
 count=$(echo -e "$CMDS" | wc -l)
 last_id=""
 current=$(mpc current --format ${format})
@@ -21,7 +32,7 @@ run_dmenu () {
     cat | dmenu -i -l ${count} -p ${cmd}
 }
 
-cmd="${1:-$(echo -e ${CMDS} | run_dmenu)}"
+cmd="${1:-$(echo -e "${CMDS}" | run_dmenu)}"
 case "${cmd,,}" in
     playlist)
         track=$(mpc playlist --format "${format}"
