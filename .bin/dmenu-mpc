@@ -2,6 +2,11 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+if ! pgrep mpd &>/dev/null ; then
+  echo "mpd not running; launching"
+  mpd
+fi
+
 format="\[%position%\] %artist% - %album% - %title%|%file%"
 CMDS="Toggle playback\nPlaylist\nNext\nPrev\nRandom\nVolume\nEnqueue\nPlay\nClear"
 count=$(echo -e "$CMDS" | wc -l)
@@ -9,11 +14,6 @@ last_id=""
 current=$(mpc current --format ${format})
 prompt="Currently playing: ${current:-nothing}"
 cmd=$prompt
-
-if ! pgrep mpd &>/dev/null ; then
-  echo "mpd not running; launching"
-  mpd
-fi
 
 run_dmenu () {
     cat | dmenu -i -l ${count} -p ${cmd}
