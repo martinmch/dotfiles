@@ -1,1 +1,1 @@
-export PATH="/home/mbc/.bin:/home/mbc/.local/bin:$PATH"
+export PATH="/home/mbc/.bin:/home/mbc/.local/bin:$PATH:/home/mbc/documents/cm-dev-scripts/"
