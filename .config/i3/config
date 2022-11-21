@@ -141,6 +141,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
 # class                 border  bground text    indicator child_border
 client.focused          #414141 #E1E1E1 #414141 #2E9EF4   #285577
 client.focused_inactive #414141 #E1E1E1 #414141 #484E50   #5F676A
@@ -218,3 +219,4 @@ for_window [class="feh"] floating enable
 for_window [class="Volume Control"] floating enable
 
 exec xset b off
+exec setxkbmap -layout us,dk -option 'grp:win_space_toggle'
