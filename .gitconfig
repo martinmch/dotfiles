@@ -32,3 +32,5 @@
     prompt = false
 [init]
 	defaultBranch = master
+[commit]
+	verbose = true
