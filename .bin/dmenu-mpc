@@ -21,22 +21,19 @@ Clear
 options
 )
 count=$(echo -e "$CMDS" | wc -l)
-last_id=""
-current=$(mpc current --format ${format})
-prompt="Playing: ${current:-nothing}"
-cmd="${prompt:0:55}..."
-
-format="\[%position%\] %artist% - %album% - %title%|%file%"
+last_id=''
+prompt=''
+format='\[%position%\] %artist% - %album% - %title%|%file%'
 
 run_dmenu () {
-    cat | dmenu -i -l ${count} -p ${cmd}
+    cat | dmenu -i -l "${count}" -p "$prompt"
 }
 
 cmd="${1:-$(echo -e "${CMDS}" | run_dmenu)}"
 case "${cmd,,}" in
     playlist)
         track=$(mpc playlist --format "${format}" \
-            | run_dmenu | grep -oEm 1 '[0-9]*')
+            | run_dmenu | grep -oEm 1 '[0-9]*' | head -n1)
         mpc play "${track}" >/dev/null;;
     'toggle playback')
         mpc toggle >/dev/null;;
@@ -47,15 +44,15 @@ case "${cmd,,}" in
     random)
         mpc random >/dev/null;;
     volume)
-        cmd="Volume$(mpc status %volume%):"
-        mpc volume $(echo | run_dmenu) >/dev/null;;
+        prompt="Volume$(mpc status %volume%):"
+        mpc volume "$(echo | run_dmenu)" >/dev/null;;
     replay)
-        mpc play $(mpc current --format %position%);;
+        mpc play "$(mpc current --format %position%)";;
     play)
         last_id=$(mpc status "%length%")
         ;&
     add)
-        CMDS="Artists\nAlbums\nTitles\nPlaylists"
+        CMDS='Artists\nAlbums\nTitles\nPlaylists'
         cmd="${2:-$(echo -e ${CMDS} | run_dmenu)}"
         case "${cmd,,}" in
             artists)
@@ -71,7 +68,7 @@ case "${cmd,,}" in
                 playlist=$(mpc lsplaylist | run_dmenu)
                 mpc load "${playlist}" >/dev/null;;
         esac
-        if [[ ! -z "$last_id" ]]; then mpc play $((last_id+1)) >/dev/null; fi;;
+        if [[ -n "$last_id" ]]; then mpc play $((last_id+1)) >/dev/null; fi;;
     clear)
         mpc clear >/dev/null;;
 esac
