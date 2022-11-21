@@ -1,0 +1,7 @@
+[window title]
+command=mpc -f "\[%position%\] [[[%artist% - ][%album% - ]%title%]|[%file%]]" current
+interval=3
+#color=#A6D1FA
+min_width=3840
+align=right
+separator=""

@@ -1,0 +1,7 @@
+[time]
+command=TZ="UTC" date +"%a %H:%M"
+align=center
+min_width=3340
+interval=3
+separator=false
+
