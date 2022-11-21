@@ -23,3 +23,5 @@ iabbrev link [Description](link)<esc>Flciw
 
 " Allow `gf` to navigate to filename.md from "filename".
 setl suffixesadd+=.md
+
+set spell
