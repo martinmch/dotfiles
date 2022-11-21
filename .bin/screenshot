@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 STAMP="$HOME/pictures/screenshots/$(hostname)-$(date +"%y-%m-%d--%H-%M-%S").png"
-cmd=$(printf "1.section\n2.fullscreen\n3.focused" \
+cmd=$(printf '1.section\n2.fullscreen\n3.focused' \
     | dmenu  -l 3 -p 'Choose screenshot type:')
 
 mkdir -p "$HOME/pictures/screenshots"
@@ -11,9 +11,9 @@ sleep 1
 case "${cmd}" in
   3.focused)
       ARGS="-u";
-      DESCRIPTiON="focused window";;
+      DESCRIPTION="focused window";;
   2.fullscreen)
-      ARG="-d 1";
+      ARGS="-d 1";
       DESCRIPTION="full screen";;
   1.section)
       ARGS="-s";
@@ -21,6 +21,6 @@ case "${cmd}" in
   *) exit 1;;
 esac
 
-scrot ${ARGS} ${STAMP} \
+scrot ${ARGS} "${STAMP}" \
   && notify-send -u low 'Screenshot' "Screenshot of ${DESCRIPTION} saved" \
-  && canberra-gtk-play -i camera-shutter -d "screenshot"
+  && canberra-gtk-play -i camera-shutter -d 'screenshot'
