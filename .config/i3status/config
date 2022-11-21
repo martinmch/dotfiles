@@ -13,16 +13,11 @@ general {
 }
 
 order += "tztime UTC"
-order += "battery all"
 
-battery all {
-        format = "(B: %percentage)"
-        integer_battery_capacity = true
-}
 tztime UTC {
         format = "%a %H:%M"
-        align="center"
-        min_width=10
+        align="right"
+        min_width=1920
         timezone = "UTC"
         hide_if_equals_localtime = true
 }
