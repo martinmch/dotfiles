@@ -2,15 +2,7 @@
 
 shopt -s nullglob globstar
 
-typeit=0
-if [[ $1 == "--type" ]]; then
-	typeit=1
-	shift
-fi
-
-password_files=( ~/.2farc )
-
-words=$(cat ~/.2farc | awk -F'=' '{print $1}' | sed 's/_2fa_key//')
+words=$(awk -F'=' '{print $1}' ~/.2farc | sed 's/_2fa_key//')
 key=$(printf '%s\n' "${words[@]}" | dmenu "$@")
 
 [[ -n $key ]] || exit
