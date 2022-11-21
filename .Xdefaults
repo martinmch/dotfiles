@@ -1,8 +1,3 @@
-! vim:ts=8
-!
-URxvt*foreground      : #aaaaaa
-URxvt*background      : #262626
-
 #ifdef HIDPI
 !Xcursor.theme:			Simp1e
 Xcursor.size:			64
@@ -22,7 +17,7 @@ URxvt.geometry:			80x40
 #ifdef HIDPI
 *.font: xft:Monaco:pixelsize=18:antialias=true:hinting=true
 #else
-*.font: xft:Monaco:pixelsize=14:antialias=true:hinting=true
+*.font: xft:Monaco:pixelsize=12:antialias=true:hinting=true
 #endif
 
 ! xterm-specific settings
