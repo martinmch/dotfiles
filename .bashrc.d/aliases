@@ -4,7 +4,6 @@ alias rm="rm -i"
 alias clock='tty-clock -csC7'
 alias pass='pass -c'
 alias :q='exit'
-alias calendar='calendar -f ~/calendar/calendar'
 alias mp='mpv --playlist="$(find $HOME/music/playlists | fzf)"'
 alias mps='mpv --shuffle --playlist="$(find $HOME/music/playlists | fzf)"'
 alias mp3='mpv "$(find $HOME/music/playlists | fzf)"'
