@@ -195,22 +195,20 @@ bindsym $mod+m exec /home/mbc/.bin/dmenu-mpc
 bindsym Mod4+l exec /home/mbc/.bin/lock
 
 exec --no-startup-id urxvtd
-exec --no-startup-id "bash $HOME/.fehbg"
+exec --no-startup-id "bash ~/.fehbg"
 exec --no-startup-id /usr/bin/pasystray
 exec --no-startup-id nm-applet
 exec --no-startup-id pcloud
-exec --no-startup-id redshift -l 55.83:12.54 -t 6500:3500
+exec --no-startup-id 'redshift -l 55.83:12.54 -t 6500:3500'
 exec --no-startup-id 'compton --vsync opengl-swc --backend glx'
+exec --no-startup-id 'xset b off'
 
 # When lauching i3, set a sensible volume.
 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 30%
 
-for_window [title="Still Alive Animation"] border pixel 0
 for_window [title="^.*"] border pixel 0
 for_window [class="Gxmessage"] floating enable
 for_window [class="xmessage"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="Volume Control"] floating enable
 
-exec xset b off
-exec setxkbmap -layout us,dk -option 'grp:win_space_toggle'
