@@ -154,29 +154,22 @@ client.background       #E1E1E1
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command i3blocks
+    status_command i3status
+    i3bar_command i3bar -t
     position top
+    tray_output none
     #workspace_buttons no
     colors {
-        background #000000
+        background #00000055
         statusline #ffffff
         separator  #666666
 
-        focused_workspace  #000000 #000000 #E1E1E1
-        active_workspace   #E1E1E1 #E1E1E1 #414141
-        inactive_workspace #111111 #111111 #888888
-        urgent_workspace   #900000 #900000 #FFFFFF
-        binding_mode       #990000 #900000 #FFFFFF
+        focused_workspace  #00000055 #00000055 #E1E1E1
+        active_workspace   #E1E1E155 #E1E1E155 #414141
+        inactive_workspace #00000066 #00000055 #888888
+        urgent_workspace   #90000055 #90000055 #FFFFFF
+        binding_mode       #99000055 #90000055 #FFFFFF
     }
-}
-
-bar {
-    status_command i3blocks -c ~/.config/i3blocks/config_bottom
-    position bottom
-    tray_output none
-    mode hide
-    workspace_buttons no
-    modifier Mod1
 }
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id /home/mbc/.bin/changeVolume up
@@ -207,6 +200,7 @@ exec --no-startup-id /usr/bin/pasystray
 exec --no-startup-id nm-applet
 exec --no-startup-id pcloud
 exec --no-startup-id redshift -l 55.83:12.54 -t 6500:3500
+exec --no-startup-id 'compton --vsync opengl-swc --backend glx'
 
 # When lauching i3, set a sensible volume.
 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 30%
