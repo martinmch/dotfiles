@@ -27,7 +27,11 @@ set completeopt=menuone,longest,preview
 set complete+=kspell
 set grepprg=grep\ -IrsnH
 set fileencodings=utf-8
-set statusline=%t\ %y%h%m%r%=%P\ %c,%l/%L
+set statusline=%=%y%h%m%r
+
+" Disallow colon in filenames. This allows me to have links to filenames with
+" lines numbers, i.e. ~/.vimrc:32
+set isfname-=:
 
 " Open splits to the right
 let g:netrw_altv         = 1
