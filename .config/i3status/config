@@ -19,5 +19,4 @@ tztime UTC {
         align="right"
         min_width=1920
         timezone = "UTC"
-        hide_if_equals_localtime = true
 }
