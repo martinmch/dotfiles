@@ -212,3 +212,5 @@ for_window [class="xmessage"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="Volume Control"] floating enable
 
+gaps inner 10
+gaps outer 5
