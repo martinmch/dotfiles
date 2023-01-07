@@ -186,8 +186,8 @@ bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
 
 # add "mbc ALL=(ALL) NOPASSWD:/usr/bin/brightnessctl" to sudoers
-bindsym XF86MonBrightnessUp   exec /home/mbc/.bin/changeBrightness up
-bindsym XF86MonBrightnessDown exec /home/mbc/.bin/changeBrightness down
+bindsym XF86MonBrightnessUp   exec brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
 bindsym Print exec /home/mbc/.bin/screenshot
 bindsym $mod+x exec /home/mbc/.bin/2famenu
