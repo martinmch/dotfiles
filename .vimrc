@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged/')
     Plug 'tpope/vim-fugitive'
-    Plug 'mileszs/ack.vim'
 call plug#end()
 
 set autoread
