@@ -1,6 +1,7 @@
 set $mod Mod1
 
-font xft:SF Pro Text:style=Medium 18
+set_from_resource $font font
+font $font
 
 focus_follows_mouse no
 
@@ -157,7 +158,6 @@ bar {
     status_command i3status
     i3bar_command i3bar -t
     position top
-    tray_output none
     #workspace_buttons no
     colors {
         background #00000055
