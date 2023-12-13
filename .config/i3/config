@@ -194,6 +194,8 @@ bindsym $mod+x exec /home/mbc/.bin/2famenu
 bindsym $mod+m exec /home/mbc/.bin/dmenu-mpc
 bindsym Mod4+l exec /home/mbc/.bin/lock
 
+bindsym Mod4+space exec (setxkbmap -query | grep -q "layout:\s\+us") && setxkbmap dk || setxkbmap us
+
 exec --no-startup-id urxvtd
 exec --no-startup-id "bash ~/.fehbg"
 exec --no-startup-id /usr/bin/pasystray
