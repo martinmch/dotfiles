@@ -4,7 +4,7 @@ call plug#end()
 
 set autoread
 set nu
-set ts=4 sw=4 et sts=4 tw=78 cc=81
+set ts=4 sw=4 et sts=4 tw=78
 set fo+=r
 set ignorecase smartcase
 set noswapfile
@@ -31,6 +31,12 @@ set statusline=%=%y%h%m%r
 " Disallow colon in filenames. This allows me to have links to filenames with
 " lines numbers, i.e. ~/.vimrc:32
 set isfname-=:
+
+augroup overlength
+    autocmd BufEnter * hi OverLength ctermbg=darkgrey
+    autocmd BufEnter * match OverLength /\%81v.*$/
+augroup END
+
 
 " Open splits to the right
 let g:netrw_altv         = 1
